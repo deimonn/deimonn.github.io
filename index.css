@@ -1,0 +1,89 @@
+/*── index.css ── Index page styles ──*
+ │
+ │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │
+ │ This file is licensed under the MIT License.
+ │
+ │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │
+ */
+
+/* SPDX-License-Identifier: MIT */
+
+/* Imports. */
+@import url("/styles/base.css");
+
+/*──────────*
+ │ Animated
+ */
+
+/* Animated background. */
+@keyframes background-animation {
+    0%   { background-position: 0%   100%; }
+    50%  { background-position: 100% 0%;   }
+    100% { background-position: 0%   100%; }
+}
+
+body {
+    animation: background-animation 120s linear infinite;
+}
+
+/* Light theme colors. */
+body {
+    background-size: 600% 600%;
+    background-image: linear-gradient(
+        220deg, #FFFF80, #80FFFF, #FF80FF, #FFFF80, #80FFFF, #FF80FF
+    );
+}
+
+/* Dark theme colors. */
+.sl-theme-dark body {
+    background-image: linear-gradient(
+        220deg, #A0A000, #00A0A0, #A000A0, #A0A000, #00A0A0, #A000A0
+    );
+}
+
+/*────────*
+ │ Static
+ */
+
+/* Layout. */
+main {
+    text-align: center;
+}
+
+/* Footer. */
+footer {
+    background-color: #FFFFFF80;
+}
+
+.sl-theme-dark footer {
+    background-color: #00000080;
+}
+
+/* Headers. */
+h1 {
+    font-size: 3em;
+    font-family: Victor Mono, monospace;
+    font-style: italic;
+}
+
+h2 {
+    font-family: Victor Mono, monospace;
+    font-style: italic;
+}
+
+/* Card. */
+sl-card {
+    width: 256px;
+    margin: 8px;
+    box-shadow: 0px 0px 8px black;
+}
+
+sl-card > b {
+    font-family: Victor Mono, monospace;
+}
+
+sl-card > p {
+    height: 64px;
+}

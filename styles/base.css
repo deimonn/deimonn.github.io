@@ -1,0 +1,208 @@
+/*── base.css ── Base stylesheet for the site ──*
+ │
+ │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │
+ │ This file is licensed under the MIT License.
+ │
+ │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │
+ */
+
+/* SPDX-License-Identifier: MIT */
+
+/*──────────*
+ │ Shoelace
+ */
+
+/* Themes. */
+@import url("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/light.css");
+@import url("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/dark.css");
+
+/* Align menu items left. */
+sl-menu {
+    text-align: left;
+}
+
+/* Links within menus should not have an underline. */
+sl-menu > a {
+    text-decoration: none;
+}
+
+sl-menu > a:hover {
+    text-decoration: none;
+}
+
+/* Toast position to bottom-right. */
+.sl-toast-stack {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+}
+
+/* Neutral color overrides. */
+:root {
+    --sl-color-neutral-0: rgb(255 255 255);
+    --sl-color-neutral-50: rgb(249 249 249);
+    --sl-color-neutral-100: rgb(236 236 236);
+    --sl-color-neutral-200: rgb(222 222 222);
+    --sl-color-neutral-300: rgb(206 206 206);
+    --sl-color-neutral-400: rgb(186 186 186);
+    --sl-color-neutral-500: rgb(160 160 160);
+    --sl-color-neutral-600: rgb(132 132 132);
+    --sl-color-neutral-700: rgb(108 108 108);
+    --sl-color-neutral-800: rgb(89 89 89);
+    --sl-color-neutral-900: rgb(63 63 63);
+    --sl-color-neutral-950: rgb(39 39 39);
+    --sl-color-neutral-1000: rgb(28 28 28);
+}
+
+.sl-theme-dark:root {
+    --sl-color-neutral-1000: rgb(255 255 255);
+    --sl-color-neutral-950: rgb(249 249 249);
+    --sl-color-neutral-900: rgb(236 236 236);
+    --sl-color-neutral-800: rgb(222 222 222);
+    --sl-color-neutral-700: rgb(206 206 206);
+    --sl-color-neutral-600: rgb(186 186 186);
+    --sl-color-neutral-500: rgb(160 160 160);
+    --sl-color-neutral-400: rgb(132 132 132);
+    --sl-color-neutral-300: rgb(108 108 108);
+    --sl-color-neutral-200: rgb(89 89 89);
+    --sl-color-neutral-100: rgb(63 63 63);
+    --sl-color-neutral-50: rgb(39 39 39);
+    --sl-color-neutral-0: rgb(28 28 28);
+}
+
+/*────────────────*
+ │ Noto Sans font
+ */
+
+/* Regular. */
+@font-face {
+    font-family: "Noto Sans";
+    src: url("/fonts/NotoSans/NotoSans-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Bold. */
+@font-face {
+    font-family: "Noto Sans";
+    src: url("/fonts/NotoSans/NotoSans-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Italic. */
+@font-face {
+    font-family: "Noto Sans";
+    src: url("/fonts/NotoSans/NotoSans-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Bold italic. */
+@font-face {
+    font-family: "Noto Sans";
+    src: url("/fonts/NotoSans/NotoSans-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*──────────────────*
+ │ Victor Mono font
+ */
+
+/* Regular. */
+@font-face {
+    font-family: "Victor Mono";
+    src: url("/fonts/VictorMono/VictorMono-Regular.woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Bold. */
+@font-face {
+    font-family: "Victor Mono";
+    src: url("/fonts/VictorMono/VictorMono-Bold.woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Italic. */
+@font-face {
+    font-family: "Victor Mono";
+    src: url("/fonts/VictorMono/VictorMono-Italic.woff2");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Bold italic. */
+@font-face {
+    font-family: "Victor Mono";
+    src: url("/fonts/VictorMono/VictorMono-BoldItalic.woff2");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*────────*
+ │ Global
+ */
+
+/* Whole site font family. */
+html {
+    font-family: Noto Sans, sans-serif;
+}
+
+/* Adjustments to body. */
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Make main content always take up the entire viewport. */
+main {
+    min-height: 100vh;
+}
+
+/* Default link style. */
+a {
+    color: var(--sl-color-primary-700);
+    text-decoration: none;
+}
+
+/* Get rid of visited style. */
+a:visited {
+    color: var(--sl-color-primary-700);
+    text-decoration: none;
+}
+
+/* Underline on hover. */
+a:hover {
+    color: var(--sl-color-primary-700);
+    text-decoration: underline;
+}
+
+/* Code block style. */
+.shiki {
+    padding: 8px;
+    border: 1px solid;
+    border-color: var(--sl-color-neutral-200);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.shiki > code {
+    font-family: Victor Mono, monospace;
+}
+
+/* Code snippet style. */
+code:not(.shiki > code) {
+    font-family: Victor Mono, monospace;
+    border: 1px solid;
+    border-color: var(--sl-color-neutral-200);
+    border-radius: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: var(--sl-color-neutral-50);
+}

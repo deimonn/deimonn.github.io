@@ -1,0 +1,211 @@
+/*── view.css ── Docs viewer styles ──*
+ │
+ │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │
+ │ This file is licensed under the MIT License.
+ │
+ │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license
+ │ information.
+ │
+ */
+
+/* SPDX-License-Identifier: MIT */
+
+/* Imports. */
+@import url("/styles/base.css");
+
+/* Background. */
+html {
+    background-color: var(--sl-color-neutral-0);
+}
+
+/* Layout. */
+main {
+    display: flex;
+}
+
+/* Shiki highlighting. */
+html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+}
+
+/*─────────*
+ │ Sidebar
+ */
+
+/* Sidebar. */
+#dd-sidebar {
+    width: 18em;
+    padding: 1em;
+    background-color: var(--sl-color-neutral-50);
+
+    /* Adjustments for small-to-medium screens. */
+    @media (max-width: 1024px) {
+        display: none;
+        padding-top: 3em;
+        position: fixed;
+        height: 100%;
+        z-index: 900;
+        overflow-y: scroll;
+    }
+}
+
+/* Sidebar drawer stuff. */
+#dd-open-nav {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    top: 8px;
+    left: 8px;
+
+    /* Display only on small-to-medium screens. */
+    @media (max-width: 1024px) {
+        display: block;
+    }
+}
+
+/* Project title & home button flex. */
+#dd-sidebar > div {
+    display: flex;
+}
+
+/* Search button & tag dropdown. */
+#dd-sidebar > sl-button-group {
+    width: 100%;
+}
+
+#dd-sidebar > sl-button-group > sl-button {
+    width: 50%;
+}
+
+#dd-sidebar > sl-button-group > sl-dropdown {
+    width: 50%;
+    overflow: hidden;
+}
+
+#dd-sidebar > sl-button-group > sl-dropdown > sl-button {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Project title. */
+#dd-project-title {
+    font-family: Victor Mono, monospace;
+    font-weight: bold;
+    font-size: 1.05em;
+    color: var(--sl-color-neutral-1000);
+    text-decoration: none;
+    margin: 8px;
+}
+
+/* GitHub button. */
+#dd-project-github {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 8px;
+    font-size: 1.25em;
+    color: var(--sl-color-neutral-1000);
+}
+
+#dd-project-github:hover {
+    color: var(--sl-color-primary-700);
+}
+
+/* Home button. */
+#dd-home {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 8px;
+    font-size: 1.25em;
+    color: var(--sl-color-neutral-1000);
+}
+
+#dd-home:hover {
+    color: var(--sl-color-primary-700);
+}
+
+/* Navigation tree. */
+#dd-project-nav {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 1em;
+}
+
+#dd-project-nav > h2 {
+    font-size: 1em;
+    font-weight: normal;
+    border-bottom: var(--sl-color-neutral-400) solid 1px;
+}
+
+#dd-project-nav > li {
+    list-style-type: none;
+    padding: 4px;
+    padding-left: 8px;
+}
+
+#dd-project-nav > li > a {
+    color: var(--sl-color-neutral-1000);
+    text-decoration: none;
+}
+
+#dd-project-nav > li > a:hover {
+    color: var(--sl-color-primary-700);
+}
+
+/*─────────────────*
+ │ Document Render
+ */
+
+/* Layout. */
+#dd-document {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    margin-bottom: 4em;
+
+    /* Adjust width on smaller screens. */
+    @media (max-width: 1366px) {
+        width: 60%;
+    }
+
+    @media (max-width: 1024px) {
+        width: 75%;
+    }
+}
+
+/*───────────────────*
+ │ Table of Contents
+ */
+
+/* Layout. */
+#dd-toc {
+    width: 18em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    /* Do not display it on small-to-medium screens. */
+    @media (max-width: 1366px) {
+        display: none
+    }
+}
+
+/* Header. */
+#dd-toc > h2 {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 1.15em;
+}
+
+/*────────*
+ │ Footer
+ */
+
+/* Footer. */
+#dd-footer-copyright {
+    margin-top: 0em;
+    padding-top: 1em;
+}

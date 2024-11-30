@@ -1,0 +1,31 @@
+/*── 404.css ── 404 error page styles ──*
+ │
+ │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │
+ │ This file is licensed under the MIT License.
+ │
+ │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │
+ */
+
+/* SPDX-License-Identifier: MIT */
+
+/* Imports. */
+@import url("/styles/base.css");
+
+/* Layout. */
+main {
+    display: flex;
+    text-align: center;
+}
+
+main > div {
+    margin: auto;
+}
+
+/* Header. */
+h1 {
+    font-size: 3em;
+    font-family: Victor Mono, monospace;
+    font-style: italic;
+}
