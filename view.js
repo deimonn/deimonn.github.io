@@ -113,14 +113,14 @@ try {
         <a href="/view?r=${repo}&t=master">
           <sl-menu-item>master</sl-menu-item>
         </a>
-    `
+    `;
 
     for (const tag of tags) {
         projectTags.children[1].innerHTML += /* HTML */ `
             <a href="/view?r=${repo}&t=${tag}">
               <sl-menu-item>${tag}</sl-menu-item>
             </a>
-        `
+        `;
     }
 
     // Update home link.
@@ -173,7 +173,7 @@ try {
                 }
 
                 // Other link.
-                const re = /^[a-z]+:\/\//i
+                const re = /^[a-z]+:\/\//i;
                 if (!re.test(token.href)) {
                     let base = path.split('/');
                     let href = token.href.split('/');
