@@ -154,6 +154,15 @@ html {
     font-family: Noto Sans, sans-serif;
 }
 
+/* Default body and footer colors. */
+body {
+    background-color: var(--sl-color-neutral-0);
+}
+
+footer {
+    background-color: var(--sl-color-neutral-100);;
+}
+
 /* Adjustments to body. */
 body {
     margin: 0;
