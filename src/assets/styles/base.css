@@ -80,7 +80,7 @@ sl-menu > a:hover {
 /* Regular. */
 @font-face {
     font-family: "Noto Sans";
-    src: url("/fonts/NotoSans/NotoSans-Regular.ttf");
+    src: url("/assets/fonts/NotoSans/NotoSans-Regular.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -88,7 +88,7 @@ sl-menu > a:hover {
 /* Bold. */
 @font-face {
     font-family: "Noto Sans";
-    src: url("/fonts/NotoSans/NotoSans-Bold.ttf");
+    src: url("/assets/fonts/NotoSans/NotoSans-Bold.ttf");
     font-weight: bold;
     font-style: normal;
 }
@@ -96,7 +96,7 @@ sl-menu > a:hover {
 /* Italic. */
 @font-face {
     font-family: "Noto Sans";
-    src: url("/fonts/NotoSans/NotoSans-Italic.ttf");
+    src: url("/assets/fonts/NotoSans/NotoSans-Italic.ttf");
     font-weight: normal;
     font-style: italic;
 }
@@ -104,7 +104,7 @@ sl-menu > a:hover {
 /* Bold italic. */
 @font-face {
     font-family: "Noto Sans";
-    src: url("/fonts/NotoSans/NotoSans-BoldItalic.ttf");
+    src: url("/assets/fonts/NotoSans/NotoSans-BoldItalic.ttf");
     font-weight: bold;
     font-style: italic;
 }
@@ -116,7 +116,7 @@ sl-menu > a:hover {
 /* Regular. */
 @font-face {
     font-family: "Victor Mono";
-    src: url("/fonts/VictorMono/VictorMono-Regular.woff2");
+    src: url("/assets/fonts/VictorMono/VictorMono-Regular.woff2");
     font-weight: normal;
     font-style: normal;
 }
@@ -124,7 +124,7 @@ sl-menu > a:hover {
 /* Bold. */
 @font-face {
     font-family: "Victor Mono";
-    src: url("/fonts/VictorMono/VictorMono-Bold.woff2");
+    src: url("/assets/fonts/VictorMono/VictorMono-Bold.woff2");
     font-weight: bold;
     font-style: normal;
 }
@@ -132,7 +132,7 @@ sl-menu > a:hover {
 /* Italic. */
 @font-face {
     font-family: "Victor Mono";
-    src: url("/fonts/VictorMono/VictorMono-Italic.woff2");
+    src: url("/assets/fonts/VictorMono/VictorMono-Italic.woff2");
     font-weight: normal;
     font-style: italic;
 }
@@ -140,7 +140,7 @@ sl-menu > a:hover {
 /* Bold italic. */
 @font-face {
     font-family: "Victor Mono";
-    src: url("/fonts/VictorMono/VictorMono-BoldItalic.woff2");
+    src: url("/assets/fonts/VictorMono/VictorMono-BoldItalic.woff2");
     font-weight: bold;
     font-style: italic;
 }
