@@ -43,18 +43,18 @@ sl-menu > a:hover {
 /* Neutral color overrides. */
 :root {
     --sl-color-neutral-0: rgb(255 255 255);
-    --sl-color-neutral-50: rgb(249 249 249);
-    --sl-color-neutral-100: rgb(236 236 236);
-    --sl-color-neutral-200: rgb(222 222 222);
-    --sl-color-neutral-300: rgb(206 206 206);
-    --sl-color-neutral-400: rgb(186 186 186);
-    --sl-color-neutral-500: rgb(160 160 160);
-    --sl-color-neutral-600: rgb(132 132 132);
-    --sl-color-neutral-700: rgb(108 108 108);
-    --sl-color-neutral-800: rgb(89 89 89);
-    --sl-color-neutral-900: rgb(63 63 63);
-    --sl-color-neutral-950: rgb(39 39 39);
-    --sl-color-neutral-1000: rgb(28 28 28);
+    --sl-color-neutral-50: rgb(221 221 221);
+    --sl-color-neutral-100: rgb(208 208 208);
+    --sl-color-neutral-200: rgb(194 194 194);
+    --sl-color-neutral-300: rgb(178 178 178);
+    --sl-color-neutral-400: rgb(158 158 158);
+    --sl-color-neutral-500: rgb(132 132 132);
+    --sl-color-neutral-600: rgb(104 104 104);
+    --sl-color-neutral-700: rgb(80 80 80);
+    --sl-color-neutral-800: rgb(61 61 61);
+    --sl-color-neutral-900: rgb(35 35 35);
+    --sl-color-neutral-950: rgb(11 11 11);
+    --sl-color-neutral-1000: rgb(0 0 0);
 }
 
 .sl-theme-dark:root {
