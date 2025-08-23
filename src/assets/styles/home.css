@@ -1,23 +1,16 @@
-/*── index.css ── Index page styles ──*
+/*── home.css ── Home page styles ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  */
 
 /* SPDX-License-Identifier: MIT */
 
-/* Imports. */
-@import url("/styles/base.css");
-
-/*──────────*
- │ Animated
- */
-
-/* Animated background. */
+/* Background animation. */
 @keyframes background-animation {
     0%   { background-position: 0%   100%; }
     50%  { background-position: 100% 0%;   }
@@ -36,29 +29,43 @@ body {
     );
 }
 
+footer {
+    margin-top: 2em;
+    background-color: #FFFFFF80;
+}
+
+.dei-desclink {
+    color: var(--sl-color-primary-300);
+}
+
+.dei-desclink:visited {
+    color: var(--sl-color-primary-300);
+}
+
+.sl-theme-dark {
+    .dei-desclink {
+        color: var(--sl-color-primary-700);
+    }
+
+    .dei-desclink:visited {
+        color: var(--sl-color-primary-700);
+    }
+}
+
 /* Dark theme colors. */
-.sl-theme-dark body {
+.sl-theme-dark > body {
     background-image: linear-gradient(
         220deg, #A0A000, #00A0A0, #A000A0, #A0A000, #00A0A0, #A000A0
     );
 }
 
-/*────────*
- │ Static
- */
+.sl-theme-dark > body > div > footer {
+    background-color: #00000080;
+}
 
 /* Layout. */
 main {
     text-align: center;
-}
-
-/* Footer. */
-footer {
-    background-color: #FFFFFF80;
-}
-
-.sl-theme-dark footer {
-    background-color: #00000080;
 }
 
 /* Headers. */
@@ -73,7 +80,42 @@ h2 {
     font-style: italic;
 }
 
-/* Card. */
+/* Description stuff. */
+h1, h2 {
+    color: white;
+    text-shadow:
+        1px 1px 2px black,
+        -1px 1px 2px black,
+        1px -1px 2px black,
+        -1px -1px 2px black;
+}
+
+.dei-desctext {
+    margin-left: 25%;
+    margin-right: 25%;
+
+    /* Adjust width on smaller screens. */
+    @media (max-width: 1366px) {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    @media (max-width: 1024px) {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
+.dei-desctext > p {
+    color: white;
+    text-shadow:
+        1px 1px 1px black,
+        -1px 1px 1px black,
+        1px -1px 1px black,
+        -1px -1px 1px black;
+}
+
+/* Cards. */
 sl-card {
     width: 256px;
     margin: 8px;

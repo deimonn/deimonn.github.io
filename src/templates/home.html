@@ -1,136 +1,102 @@
-<!doctype html>
-
-<!-- index.html ── Index page ──*
+<!-- src/templates/home.html ── Home page template ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  -->
 
 <!-- SPDX-License-Identifier: MIT -->
 
-<html lang="en">
-  <head>
-    <!-- Title & icon -->
-    <title>deimonn.dev</title>
-    <link rel="icon" type="image/x-icon" href="index.png">
+<main>
+  <h1>deimonn.dev</h1>
 
-    <!-- Metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+  <!-- Projects -->
+  <h2>Projects</h2>
+  <div class="description">
+      <p>Information, documentation and guides of things I've made or worked with.</p>
+  </div>
 
-  <body>
-    <!-- Toolbar -->
-    <div id="dd-toolbar">
-      <sl-include src="/includes/toolbar.html" allow-scripts></sl-include>
-    </div>
+  <sl-card>
+    <b slot="header">void-guides</b>
+    <p>A collection of all kinds of guides for Void Linux</p>
 
-    <!-- Main -->
-    <main>
-      <h1>deimonn.dev</h1>
-      <p>
-        If you're here, you're probably looking for my project documentation or other guides.
-      </p>
+    <sl-button-group slot="footer">
+      <sl-button href="/void-guides" pill>
+        <sl-icon slot="prefix" name="book"></sl-icon> Docs
+      </sl-button>
 
-      <!-- Projects -->
-      <h2>Projects</h2>
+      <sl-button href="https://github.com/deimonn/void-guides" target="_blank" pill>
+        <sl-icon slot="prefix" name="github"></sl-icon> GitHub
+      </sl-button>
+    </sl-button-group>
+  </sl-card>
 
-      <sl-card>
-        <b slot="header">code-re2c</b>
-        <p>
-          Experimental re2c linting and syntax highlighting for VSCode and derivatives
-        </p>
+  <!-- Extensions -->
+  <h2>Extensions</h2>
+  <div class="dei-desctext">
+      <p>Extensions I've made for <a class="dei-desctext" href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> as well as editors based on it such as <a class="dei-desctext" href="https://theia-ide.org/" target="_blank">Eclipse Theia</a> and <a class="dei-desctext" href="https://github.com/VSCodium/vscodium" target="_blank">VSCodium</a>.</p>
+  </div>
 
-        <sl-button-group slot="footer">
-          <sl-dropdown>
-            <sl-button slot="trigger" pill>
-              <sl-icon slot="prefix" name="globe"></sl-icon> Page
-            </sl-button>
-            <sl-menu>
-              <a href="https://marketplace.visualstudio.com/items?itemName=deimonn.code-re2c" target="_blank">
-                <sl-menu-item>
-                    <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> Marketplace
-                </sl-menu-item>
-              </a>
+  <sl-card>
+    <b slot="header">code-re2c</b>
+    <p>Experimental re2c linting and syntax highlighting for VSCode and derivatives</p>
 
-              <a href="https://open-vsx.org/extension/deimonn/code-re2c" target="_blank">
-                <sl-menu-item>
-                    <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> OpenVSX
-                </sl-menu-item>
-              </a>
-            </sl-menu>
-          </sl-dropdown>
+    <sl-button-group slot="footer">
+      <sl-dropdown>
+        <sl-button slot="trigger" pill>
+          <sl-icon slot="prefix" name="globe"></sl-icon> Page
+        </sl-button>
+        <sl-menu>
+          <a href="https://marketplace.visualstudio.com/items?itemName=deimonn.code-re2c" target="_blank">
+            <sl-menu-item>
+              <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> Marketplace
+            </sl-menu-item>
+          </a>
 
-          <sl-button href="https://github.com/deimonn/code-re2c" target="_blank" pill>
-            <sl-icon slot="prefix" name="github"></sl-icon> GitHub
-          </sl-button>
-        </sl-button-group>
-      </sl-card>
+          <a href="https://open-vsx.org/extension/deimonn/code-re2c" target="_blank">
+            <sl-menu-item>
+              <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> OpenVSX
+            </sl-menu-item>
+          </a>
+        </sl-menu>
+      </sl-dropdown>
 
-      <sl-card>
-        <b slot="header">oro-theme</b>
-        <p>
-          Aesthetic yet functional theme for VSCode and derivatives
-        </p>
+      <sl-button href="https://github.com/deimonn/code-re2c" target="_blank" pill>
+        <sl-icon slot="prefix" name="github"></sl-icon> GitHub
+      </sl-button>
+    </sl-button-group>
+  </sl-card>
 
-        <sl-button-group slot="footer">
-          <sl-dropdown>
-            <sl-button slot="trigger" pill>
-              <sl-icon slot="prefix" name="globe"></sl-icon> Page
-            </sl-button>
-            <sl-menu>
-              <a href="https://marketplace.visualstudio.com/items?itemName=deimonn.oro-theme" target="_blank">
-                <sl-menu-item>
-                    <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> Marketplace
-                </sl-menu-item>
-              </a>
+  <sl-card>
+    <b slot="header">oro-theme</b>
+    <p>Aesthetic yet functional theme for VSCode and derivatives</p>
 
-              <a href="https://open-vsx.org/extension/deimonn/oro-theme" target="_blank">
-                <sl-menu-item>
-                    <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> OpenVSX
-                </sl-menu-item>
-              </a>
-            </sl-menu>
-          </sl-dropdown>
+    <sl-button-group slot="footer">
+      <sl-dropdown>
+        <sl-button slot="trigger" pill>
+          <sl-icon slot="prefix" name="globe"></sl-icon> Page
+        </sl-button>
+        <sl-menu>
+          <a href="https://marketplace.visualstudio.com/items?itemName=deimonn.oro-theme" target="_blank">
+            <sl-menu-item>
+              <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> Marketplace
+            </sl-menu-item>
+          </a>
 
-          <sl-button href="https://github.com/deimonn/oro-theme" target="_blank" pill>
-            <sl-icon slot="prefix" name="github"></sl-icon> GitHub
-          </sl-button>
-        </sl-button-group>
-      </sl-card>
+          <a href="https://open-vsx.org/extension/deimonn/oro-theme" target="_blank">
+            <sl-menu-item>
+              <sl-icon slot="prefix" name="box-arrow-up-right"></sl-icon> OpenVSX
+            </sl-menu-item>
+          </a>
+        </sl-menu>
+      </sl-dropdown>
 
-      <!-- Guides -->
-      <h2>Guides</h2>
-
-      <sl-card>
-        <b slot="header">void-guides</b>
-        <p>
-          A collection of all kinds of guides for Void Linux
-        </p>
-
-        <sl-button-group slot="footer">
-          <sl-button href="/view?r=void-guides" pill>
-            <sl-icon slot="prefix" name="book"></sl-icon> Docs
-          </sl-button>
-
-          <sl-button href="https://github.com/deimonn/void-guides" target="_blank" pill>
-            <sl-icon slot="prefix" name="github"></sl-icon> GitHub
-          </sl-button>
-        </sl-button-group>
-      </sl-card>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <sl-include src="/includes/footer.html" allow-scripts></sl-include>
-    </footer>
-  </body>
-
-  <!-- References -->
-  <link rel="stylesheet" href="index.css">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/shoelace.js"></script>
-</html>
+      <sl-button href="https://github.com/deimonn/oro-theme" target="_blank" pill>
+        <sl-icon slot="prefix" name="github"></sl-icon> GitHub
+      </sl-button>
+    </sl-button-group>
+  </sl-card>
+</main>
