@@ -1,51 +1,20 @@
-<!doctype html>
-
-<!-- 404.html ── 404 error page ──*
+<!-- src/templates/error.html ── Error page template ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  -->
 
 <!-- SPDX-License-Identifier: MIT -->
 
-<html lang="en">
-  <head>
-    <!-- Title & icon -->
-    <title>404 Not Found - deimonn.dev</title>
-    <link rel="icon" type="image/x-icon" href="404.png">
-
-    <!-- Metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-
-  <body>
-    <!-- Toolbar -->
-    <div id="dd-toolbar">
-      <sl-include src="/includes/toolbar.html" allow-scripts></sl-include>
-    </div>
-
-    <!-- Main -->
-    <main>
-      <div>
-        <h1>deimonn.dev</h1>
-        <h2>404 Not Found</h2>
-        <p>The page you're trying to access could not be found</p>
-        <a href="/">Go back to home page</a>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <sl-include src="/includes/footer.html" allow-scripts></sl-include>
-    </footer>
-  </body>
-
-  <!-- References -->
-  <link rel="stylesheet" href="index.css">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/shoelace.js"></script>
-</html>
+<main>
+  <div>
+    <h1>deimonn.dev</h1>
+    <h2>${ERROR_STATUS} {$ERROR_MESSAGE}</h2>
+    <p>${ERROR_DESCRIPTION}</p>
+    <a href="/">Go back to home page</a>
+  </div>
+</main>

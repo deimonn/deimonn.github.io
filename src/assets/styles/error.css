@@ -1,17 +1,14 @@
-/*── 404.css ── 404 error page styles ──*
+/*── error.css ── Error page styles ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  */
 
 /* SPDX-License-Identifier: MIT */
-
-/* Imports. */
-@import url("/styles/base.css");
 
 /* Layout. */
 main {
