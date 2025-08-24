@@ -1,0 +1,3 @@
+[submodule "src/submodules/void-guides"]
+	path = src/submodules/void-guides
+	url = https://github.com/deimonn/void-guides
