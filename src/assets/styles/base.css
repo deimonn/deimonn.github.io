@@ -1,10 +1,10 @@
-/*── base.css ── Base stylesheet for the site ──*
+/*── base.css ── Base styles for the site ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  */
 
@@ -13,10 +13,6 @@
 /*──────────*
  │ Shoelace
  */
-
-/* Themes. */
-@import url("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/light.css");
-@import url("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/themes/dark.css");
 
 /* Align menu items left. */
 sl-menu {
@@ -172,6 +168,30 @@ body {
 /* Make main content always take up the entire viewport. */
 main {
     min-height: 100vh;
+}
+
+/* Fix the toolbar position. */
+.dei-toolbar {
+    z-index: 1000;
+    position: fixed;
+    top: 8px;
+    right: 8px;
+}
+
+/* Footer style. */
+footer {
+    text-align: center;
+    width: 100%;
+}
+
+.dei-footertop {
+    margin-top: 0;
+    padding-top: 1em;
+}
+
+.dei-footerbottom {
+    margin-bottom: 0;
+    padding-bottom: 1em;
 }
 
 /* Default link style. */
