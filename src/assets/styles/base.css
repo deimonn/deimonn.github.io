@@ -213,7 +213,7 @@ a:hover {
 }
 
 /* Code block style. */
-.shiki {
+pre {
     padding: 8px;
     border: 1px solid;
     border-color: var(--sl-color-neutral-200);
@@ -221,12 +221,12 @@ a:hover {
     overflow-x: auto;
 }
 
-.shiki > code {
+pre > code {
     font-family: Victor Mono, monospace;
 }
 
 /* Code snippet style. */
-code:not(.shiki > code) {
+code:not(pre > code) {
     font-family: Victor Mono, monospace;
     border: 1px solid;
     border-color: var(--sl-color-neutral-200);
