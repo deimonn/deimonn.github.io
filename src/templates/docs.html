@@ -1,124 +1,51 @@
-<!doctype html>
-
-<!-- view.html ── Docs viewer page ──*
+<!-- src/templates/docs.html ── Docs page template ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  -->
 
 <!-- SPDX-License-Identifier: MIT -->
 
-<html lang="en">
-  <head>
-    <!-- Title & icon -->
-    <title>Loading... - deimonn.dev</title>
-    <link rel="icon" type="image/x-icon" href="view.png">
-
-    <!-- Metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-
-  <body>
-    <!-- Toolbar -->
-    <div id="dd-toolbar">
-      <sl-include src="/includes/toolbar.html" allow-scripts></sl-include>
+<main>
+  <aside>
+    <!-- Repository -->
+    <div>
+      <a class="dei-projectname" href="/${DOCS_REPO}">${DOCS_REPO}</a>
+      <a class="dei-projectrepo" href="https://github.com/deimonn/${DOCS_REPO}" target="_blank">
+        <sl-icon name="github"></sl-icon>
+      </a>
+      <a class="dei-homebutton" href="/">
+        <sl-icon name="house-fill"></sl-icon>
+      </a>
     </div>
 
-    <!-- Main -->
-    <main>
-      <aside id="dd-sidebar">
-        <!-- Site logo -->
-        <div>
-          <a id="dd-project-title"></a>
-          <a id="dd-project-github" target="_blank"><sl-icon slot="prefix" name="github"></sl-icon></a>
-          <a href="/" id="dd-home"><sl-icon slot="prefix" name="house-fill"></sl-icon></a>
-        </div>
+    <!-- Search -->
+    <sl-input placeholder="Search" clearable pill disabled> <!-- TODO: implement -->
+      <sl-icon name="search" slot="prefix"></sl-icon>
+    </sl-input>
 
-        <!-- Search & tag -->
-        <sl-button-group slot="footer">
-          <!-- Search -->
-          <sl-button href="#" pill disabled> <!-- TODO: Implement -->
-            <sl-icon slot="prefix" name="search"></sl-icon> Search
-          </sl-button>
+    <!-- Navigation -->
+    <ul class="dei-navigation">
+      ${DOCS_NAVHTML}
+    </ul>
+  </aside>
 
-          <!-- Tags -->
-          <sl-dropdown id="dd-project-tags">
-            <sl-button slot="trigger" pill caret>
-              <sl-icon slot="prefix" name="tag-fill"></sl-icon> <sl-spinner></sl-spinner>
-            </sl-button>
+  <sl-button class="dei-openaside" pill>
+      <sl-icon name="list"></sl-icon>
+  </sl-button>
 
-            <sl-menu>
-              <sl-spinner style="margin-left: 3em; margin-right: 3em"></sl-spinner>
-            </sl-menu>
-          </sl-dropdown>
-        </sl-button-group>
+  <!-- Document viewer -->
+  <div class="dei-document">
+      ${DOCS_MAINHTML}
+  </div>
 
-        <!-- Navigation -->
-        <ul id="dd-project-nav">
-          <h2><sl-skeleton style="width: 70%; margin-bottom: 4px;" effect="pulse"></sl-skeleton></h2>
-          <li><sl-skeleton style="width: 70%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 80%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 60%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 40%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 55%" effect="pulse"></sl-skeleton></li>
-
-          <h2><sl-skeleton style="width: 70%; margin-bottom: 4px;" effect="pulse"></sl-skeleton></h2>
-          <li><sl-skeleton style="width: 55%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 70%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 40%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 80%" effect="pulse"></sl-skeleton></li>
-          <li><sl-skeleton style="width: 60%" effect="pulse"></sl-skeleton></li>
-        </ul>
-      </aside>
-
-      <sl-button id="dd-open-nav" pill>
-        <sl-icon name="list"></sl-icon>
-      </sl-button>
-
-      <!-- Document viewer -->
-      <div id="dd-document">
-        <div style="width: 100%; display: flex;">
-          <sl-spinner style="font-size: 6em; margin-left: auto; margin-right: auto;"></sl-spinner>
-        </div>
-      </div>
-
-      <!-- Table of contents -->
-      <div id="dd-toc">
-        <h2>Table of Contents</h2>
-        <sl-skeleton style="width: 70%; margin-bottom: 8px" effect="pulse"></sl-skeleton>
-        <sl-skeleton style="width: 80%; margin-bottom: 8px" effect="pulse"></sl-skeleton>
-        <sl-skeleton style="width: 60%; margin-bottom: 8px" effect="pulse"></sl-skeleton>
-        <sl-skeleton style="width: 65%; margin-bottom: 8px" effect="pulse"></sl-skeleton>
-        <sl-skeleton style="width: 55%; margin-bottom: 8px" effect="pulse"></sl-skeleton>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <sl-include src="/includes/footer.html" allow-scripts></sl-include>
-    </footer>
-
-    <!-- Alerts -->
-    <sl-alert id="dd-error-alert" variant="danger" closable>
-      <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
-      <strong>An error has ocurred!</strong><br>
-      <span id="dd-error-text"></span><br>
-    </sl-alert>
-  </body>
-
-  <!-- References -->
-  <link rel="stylesheet" href="view.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.3.0/github-markdown.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.2/lib/marked.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked-gfm-heading-id@4.1.1/lib/index.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.1/dist/purify.min.js"></script>
-
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/shoelace.js"></script>
-  <script type="module" src="view.js"></script>
-</html>
+  <!-- Table of contents -->
+  <div class="dei-toc">
+      <h2>Table of Contents</h2>
+      ${DOCS_TOCHTML}
+  </div>
+</main>

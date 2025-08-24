@@ -1,23 +1,14 @@
-/*── view.css ── Docs viewer styles ──*
+/*── docs.css ── Docs viewer styles ──*
  │
- │ Copyright (c) 2024 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
- │ See https://raw.githubusercontent.com/deimonn/deimonn.github.io/master/LICENSE for license
- │ information.
+ │ See https://deimonn.dev/license.txt for license information.
  │
  */
 
 /* SPDX-License-Identifier: MIT */
-
-/* Imports. */
-@import url("/styles/base.css");
-
-/* Background. */
-html {
-    background-color: var(--sl-color-neutral-0);
-}
 
 /* Layout. */
 main {
@@ -26,16 +17,12 @@ main {
 
 /* Shiki highlighting. */
 html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
 }
 
-/*─────────*
- │ Sidebar
- */
-
 /* Sidebar. */
-#dd-sidebar {
+aside {
     width: 18em;
     padding: 1em;
     background-color: var(--sl-color-neutral-50);
@@ -51,8 +38,13 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     }
 }
 
-/* Sidebar drawer stuff. */
-#dd-open-nav {
+/* Project title & home button flex. */
+aside > div {
+    display: flex;
+}
+
+/* Button that opens the sidebar. */
+.dei-openaside {
     display: none;
     z-index: 1000;
     position: fixed;
@@ -65,33 +57,8 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     }
 }
 
-/* Project title & home button flex. */
-#dd-sidebar > div {
-    display: flex;
-}
-
-/* Search button & tag dropdown. */
-#dd-sidebar > sl-button-group {
-    width: 100%;
-}
-
-#dd-sidebar > sl-button-group > sl-button {
-    width: 50%;
-}
-
-#dd-sidebar > sl-button-group > sl-dropdown {
-    width: 50%;
-    overflow: hidden;
-}
-
-#dd-sidebar > sl-button-group > sl-dropdown > sl-button {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-}
-
 /* Project title. */
-#dd-project-title {
+.dei-projectname, .dei-projectname:visited {
     font-family: Victor Mono, monospace;
     font-weight: bold;
     font-size: 1.05em;
@@ -101,7 +68,7 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
 }
 
 /* GitHub button. */
-#dd-project-github {
+.dei-projectrepo, .dei-projectrepo:visited {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
@@ -110,12 +77,12 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     color: var(--sl-color-neutral-1000);
 }
 
-#dd-project-github:hover {
+.dei-projectrepo:hover {
     color: var(--sl-color-primary-700);
 }
 
 /* Home button. */
-#dd-home {
+.dei-homebutton, .dei-homebutton:visited {
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 8px;
@@ -123,44 +90,40 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     color: var(--sl-color-neutral-1000);
 }
 
-#dd-home:hover {
+.dei-homebutton:hover {
     color: var(--sl-color-primary-700);
 }
 
 /* Navigation tree. */
-#dd-project-nav {
+.dei-navigation {
     margin-top: 1em;
     margin-bottom: 1em;
     padding-left: 1em;
 }
 
-#dd-project-nav > h2 {
+.dei-navigation > h2 {
     font-size: 1em;
     font-weight: normal;
     border-bottom: var(--sl-color-neutral-400) solid 1px;
 }
 
-#dd-project-nav > li {
+.dei-navigation > li {
     list-style-type: none;
     padding: 4px;
     padding-left: 8px;
 }
 
-#dd-project-nav > li > a {
+.dei-navigation > li > a {
     color: var(--sl-color-neutral-1000);
     text-decoration: none;
 }
 
-#dd-project-nav > li > a:hover {
+.dei-navigation > li > a:hover {
     color: var(--sl-color-primary-700);
 }
 
-/*─────────────────*
- │ Document Render
- */
-
-/* Layout. */
-#dd-document {
+/* Document render. */
+.dei-document {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -177,12 +140,8 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     }
 }
 
-/*───────────────────*
- │ Table of Contents
- */
-
-/* Layout. */
-#dd-toc {
+/* Table of contents. */
+.dei-toc {
     width: 18em;
     margin-top: 3em;
     margin-bottom: 3em;
@@ -193,19 +152,8 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     }
 }
 
-/* Header. */
-#dd-toc > h2 {
+.dei-toc > h2 {
     margin-top: 8px;
     font-weight: bold;
     font-size: 1.15em;
-}
-
-/*────────*
- │ Footer
- */
-
-/* Footer. */
-#dd-footer-copyright {
-    margin-top: 0em;
-    padding-top: 1em;
 }
