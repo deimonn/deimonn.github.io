@@ -58,7 +58,7 @@ aside > div {
 }
 
 /* Project title. */
-.dei-projectname, .dei-projectname:visited {
+.dei-projectname, .dei-projectname:visited, .dei-projectname:hover {
     font-family: Victor Mono, monospace;
     font-weight: bold;
     font-size: 1.05em;
