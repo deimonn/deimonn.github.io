@@ -15,10 +15,10 @@ main {
     display: flex;
 }
 
-/* Shiki highlighting. */
+/* Dark/light theme switching for shiki. */
 html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
 }
 
 /* Sidebar. */
