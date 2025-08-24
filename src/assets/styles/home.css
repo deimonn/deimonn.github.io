@@ -30,7 +30,7 @@ body {
 }
 
 footer {
-    margin-top: 2em;
+    margin-top: 5em;
     background-color: #FFFFFF80;
 }
 
@@ -59,7 +59,7 @@ footer {
     );
 }
 
-.sl-theme-dark > body > div > footer {
+.sl-theme-dark > body > footer {
     background-color: #00000080;
 }
 
