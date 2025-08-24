@@ -36,6 +36,32 @@ function setTheme(theme) {
     }
 }
 
+// Open sidebar button.
+(function() {
+    const sidebarButton = document.getElementById("dei-openaside");
+    if (!sidebarButton) {
+        return;
+    }
+
+    const sidebar = document.getElementsByTagName("aside")[0];
+    let isOpen = false;
+
+    // On click, show/hide sidebar.
+    sidebarButton.addEventListener("click", () => {
+        if (isOpen) {
+            isOpen = false;
+            sidebar.style = "";
+            sidebarButton.innerHTML =
+                /* HTML */ `<sl-icon name="list"></sl-icon>`;
+        } else {
+            isOpen = true;
+            sidebar.style = "display: block";
+            sidebarButton.innerHTML =
+                /* HTML */ `<sl-icon name="arrow-left"></sl-icon>`;
+        }
+    });
+})();
+
 // Back-to-top button.
 (function() {
     const backToTop = document.getElementById("dei-backtotop");
