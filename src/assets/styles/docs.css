@@ -21,20 +21,24 @@ html.sl-theme-dark .shiki, html.sl-theme-dark .shiki span {
     background-color: var(--shiki-dark-bg) !important;
 }
 
+/* Footer adjustments. */
+footer {
+    position: sticky;
+}
+
 /* Sidebar. */
 aside {
     width: 18em;
+    height: 100%;
     padding: 1em;
     background-color: var(--sl-color-neutral-50);
+    position: fixed;
 
     /* Adjustments for small-to-medium screens. */
     @media (max-width: 1024px) {
         display: none;
         padding-top: 3em;
-        position: fixed;
-        height: 100%;
         z-index: 900;
-        overflow-y: scroll;
     }
 }
 
@@ -99,6 +103,13 @@ aside > div {
     margin-top: 1em;
     margin-bottom: 1em;
     padding-left: 1em;
+    height: calc(100% - 8em);
+    overflow-y: scroll;
+
+    /* Adjustments for small-to-medium screens. */
+    @media (max-width: 1024px) {
+        height: calc(100% - 10em);
+    }
 }
 
 .dei-navigation > h2 {
@@ -128,23 +139,29 @@ aside > div {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2em;
-    margin-bottom: 4em;
+    margin-bottom: 32em;
 
     /* Adjust width on smaller screens. */
     @media (max-width: 1366px) {
+        padding-left: 18em;
         width: 60%;
     }
 
     @media (max-width: 1024px) {
+        padding-left: 0em;
         width: 75%;
     }
 }
 
 /* Table of contents. */
 .dei-toc {
+    background-color: var(--sl-color-neutral-0);
     width: 18em;
-    margin-top: 3em;
+    height: 100%;
     margin-bottom: 3em;
+    padding: 1em;
+    position: fixed;
+    right: 0;
 
     /* Do not display it on small-to-medium screens. */
     @media (max-width: 1366px) {
@@ -156,4 +173,9 @@ aside > div {
     margin-top: 8px;
     font-weight: bold;
     font-size: 1.15em;
+}
+
+.dei-toccontent {
+    height: calc(100% - 5em);
+    overflow-y: scroll;
 }
