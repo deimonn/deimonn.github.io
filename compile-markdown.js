@@ -80,10 +80,10 @@ let mainHtml = await marked.parse(readFile(input), {
 
         // Process code blocks.
         if (token.type === "code") {
-            // Replace unknown languages with 'plaintext' language.
-            let lang = (token.lang ?? "text").toLowerCase();
+            // Replace unknown languages with plain text.
+            let lang = (token.lang ?? "txt").toLowerCase();
             if (!languages.includes(lang)) {
-                lang = "text";
+                lang = "txt";
             }
 
             // Update token.
