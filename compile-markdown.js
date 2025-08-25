@@ -40,11 +40,12 @@ const oroTheme = JSON.parse(readFile("obj/oro-theme.json"));
 oroTheme.name = "oro";
 
 // Configure highlighting.
-const languages = ["c", "cpp", "c++", "bash", "sh", "shell", "zsh", "xml"];
 const highlighter = await shiki.createHighlighter({
     langs: ["c", "cpp", "shell", "xml"],
     themes: ["light-plus", oroTheme]
 });
+
+const languages = highlighter.getLoadedLanguages();
 
 // Configure markdown compiler.
 marked.use(markedGfmHeadingId.gfmHeadingId());
