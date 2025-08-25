@@ -92,5 +92,20 @@ function setTheme(theme) {
     });
 })();
 
+// Create anchors for headings.
+(function() {
+    for (const heading of document.querySelectorAll("h1, h2, h3, h4, h5")) {
+        if (!heading.id || heading.id.startsWith("dei-")) {
+            continue;
+        }
+
+        heading.innerHTML += /* HTML */ `
+            <a href="#${heading.id}" class="dei-anchor">
+              <sl-icon name="link-45deg"></sl-icon>
+            </a>
+        `;
+    }
+})();
+
 // Theme initialization.
 setTheme(localStorage.getItem("theme") ?? "system");

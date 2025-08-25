@@ -243,3 +243,19 @@ blockquote {
     padding-left: 1em;
     padding-right: 1em;
 }
+
+/* Heading anchor. */
+.dei-anchor, .dei-anchor:visited {
+    visibility: hidden;
+    color: var(--sl-color-neutral-1000);
+}
+
+.dei-anchor:hover {
+    visibility: hidden;
+    color: var(--sl-color-primary-700);
+}
+
+h1:hover .dei-anchor, h2:hover .dei-anchor, h3:hover .dei-anchor,
+h4:hover .dei-anchor, h5:hover .dei-anchor {
+    visibility: visible;
+}
