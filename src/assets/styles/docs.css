@@ -180,3 +180,15 @@ aside > div {
     height: calc(100vh - 5em);
     overflow-y: scroll;
 }
+
+/* Copy button. */
+sl-copy-button {
+    visibility: hidden;
+    float: right;
+    position: relative;
+    height: 0;
+}
+
+.dei-copycode:hover sl-copy-button {
+    visibility: visible;
+}

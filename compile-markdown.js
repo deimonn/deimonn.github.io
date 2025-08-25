@@ -54,6 +54,7 @@ marked.use({
 });
 
 // Compile markdown.
+let counter = 0;
 let mainHtml = await marked.parse(readFile(input), {
     walkTokens: async (token) => {
         // Process relative links.
@@ -96,6 +97,31 @@ let mainHtml = await marked.parse(readFile(input), {
                 }
             });
 
+            token.text = /* HTML */ `
+                <div class="dei-copycode">
+                    <sl-copy-button from="dei-codeblock${counter}.innerText">
+                        <sl-icon
+                            slot="copy-icon"
+                            name="clipboard-fill"
+                        ></sl-icon>
+                        <sl-icon
+                            slot="success-icon"
+                            name="clipboard-check-fill"
+                        ></sl-icon>
+                        <sl-icon
+                            slot="error-icon"
+                            name="clipboard-x-fill"
+                        ></sl-icon>
+                    </sl-copy-button>
+                    ${token.text}
+                </div>
+            `;
+
+            token.text = token.text.replace(/<code>/, /* HTML */ `
+                <code id="dei-codeblock${counter}">
+            `.trim());
+
+            counter++;
             return;
         }
 
