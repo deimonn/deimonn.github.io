@@ -34,24 +34,6 @@ footer {
     background-color: #FFFFFF80;
 }
 
-.dei-desclink {
-    color: var(--sl-color-primary-300);
-}
-
-.dei-desclink:visited {
-    color: var(--sl-color-primary-300);
-}
-
-.sl-theme-dark {
-    .dei-desclink {
-        color: var(--sl-color-primary-700);
-    }
-
-    .dei-desclink:visited {
-        color: var(--sl-color-primary-700);
-    }
-}
-
 /* Dark theme colors. */
 .sl-theme-dark > body {
     background-image: linear-gradient(
@@ -94,6 +76,14 @@ h1, h2 {
     margin-left: 25%;
     margin-right: 25%;
 
+    /* Fancy text. */
+    color: white;
+    text-shadow:
+        1px 1px 1px black,
+        -1px 1px 1px black,
+        1px -1px 1px black,
+        -1px -1px 1px black;
+
     /* Adjust width on smaller screens. */
     @media (max-width: 1366px) {
         margin-left: 15%;
@@ -106,13 +96,24 @@ h1, h2 {
     }
 }
 
-.dei-desctext > p {
-    color: white;
-    text-shadow:
-        1px 1px 1px black,
-        -1px 1px 1px black,
-        1px -1px 1px black,
-        -1px -1px 1px black;
+.dei-desctext > sl-icon {
+    position: relative;
+    top: 0.15em;
+    filter:
+        drop-shadow(0.3px 0.3px 0.3px black)
+        drop-shadow(-0.3px 0.3px 0.3px black)
+        drop-shadow(0.3px -0.3px 0.3px black)
+        drop-shadow(-0.3px -0.3px 0.3px black);
+}
+
+.dei-desclink, .dei-desclink:visited, .dei-desclink:hover {
+    color: var(--sl-color-primary-300);
+}
+
+.sl-theme-dark {
+    .dei-desclink, .dei-desclink:visited, .dei-desclink:hover {
+        color: var(--sl-color-primary-700);
+    }
 }
 
 /* Cards. */
