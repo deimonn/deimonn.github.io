@@ -67,7 +67,7 @@ let mainHtml = await marked.parse(readFile(input), {
                 token.type = "html";
                 token.text = /* HTML */ `
                     <a href="${token.href}" target="_blank">${token.text}</a>
-                `;
+                `.trim();
 
                 return;
             }
