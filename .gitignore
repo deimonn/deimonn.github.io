@@ -13,3 +13,8 @@
 # OS specific files.
 .DS_store
 Thumbs.db
+
+# Build artifacts.
+node_modules
+/dist
+/obj
