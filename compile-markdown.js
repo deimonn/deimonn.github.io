@@ -57,7 +57,7 @@ marked.use({
 let counter = 0;
 let mainHtml = await marked.parse(readFile(input), {
     walkTokens: async (token) => {
-        // Process relative links.
+        // Process links.
         if (token.type === "link") {
             // Same document; nothing to do.
             if (token.href.startsWith("#")) {
