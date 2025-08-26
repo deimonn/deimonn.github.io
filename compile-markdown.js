@@ -11,6 +11,7 @@
 // SPDX-License-Identifier: MIT
 
 import fs from "fs";
+import path from "path";
 
 import * as marked from "marked";
 import * as markedGfmHeadingId from "marked-gfm-heading-id";
@@ -74,8 +75,23 @@ let mainHtml = await marked.parse(readFile(input), {
                 return;
             }
 
-            // Remove '.md' extension from links.
-            token.href = token.href.replace(/(\.md$)|(\.md(?=#))/, "");
+            // Relative link to markdown; remove extension.
+            if (/(\.md$)|(\.md(?=#))/.test(token.href)) {
+                token.href = token.href.replace(/(\.md$)|(\.md(?=#))/, "");
+                return;
+            }
+
+            // Other relative link; point to raw user content.
+            let dirname = path.dirname(target);
+            let href =
+                `https://raw.githubusercontent.com/deimonn/` +
+                `${repo}/refs/heads/master/${dirname}/${token.href}`
+
+            token.type = "html";
+            token.text = /* HTML */ `
+                <a href="${href}" target="_blank">${token.text}</a>
+            `.trim();
+
             return;
         }
 
