@@ -69,7 +69,7 @@ void_guides_sources = \
 void_guides_outputs = \
 	$(patsubst src/submodules/void-guides/%.md,dist/void-guides/%.html,$(void_guides_sources))
 
-obj/void-guides.list:
+obj/void-guides.list: $(void_guides_sources)
 	echo '$(sort $(void_guides_sources))' > $@
 
 $(void_guides_outputs): \
