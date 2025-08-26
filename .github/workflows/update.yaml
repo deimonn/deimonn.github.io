@@ -1,0 +1,29 @@
+name: Update submodules
+
+on:
+  repository_dispatch:
+    types: [update-submodules]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT }}
+        submodules: true
+
+    - name: Update submodules
+      run: git submodule update --remote
+
+    - name: Commit changes
+      run: |
+        git config --global user.name 'deimonn'
+        git config --global user.email 'deimonn@users.noreply.github.com'
+        git commit -am "Update submodules"
+        git push
