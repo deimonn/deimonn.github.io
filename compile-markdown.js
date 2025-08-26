@@ -211,7 +211,7 @@ for (const [_, category] of Object.entries(categories)) {
 
     for (const file of category.files) {
         // Current file, highlighted in bold.
-        if (input == `${repo}/${file.path}`) {
+        if (input == `src/submodules/${repo}/${file.path}`) {
             navHtml += /* HTML */ `
                 <li>
                   <b>${file.name}</b>
