@@ -25,5 +25,5 @@ jobs:
       run: |
         git config --global user.name 'deimonn'
         git config --global user.email 'deimonn@users.noreply.github.com'
-        git commit -am "Update submodules"
+        git commit -am "[auto] Update submodules"
         git push
