@@ -97,6 +97,7 @@ let mainHtml = await marked.parse(readFile(input), {
                 }
             });
 
+            // Add copy button to code block.
             token.text = /* HTML */ `
                 <div class="dei-copycode">
                     <sl-copy-button from="dei-codeblock${counter}.innerText">
@@ -209,6 +210,7 @@ for (const [_, category] of Object.entries(categories)) {
     navHtml += /* HTML */ `<h2>${category.name}</h2>`;
 
     for (const file of category.files) {
+        // Current file, highlighted in bold.
         if (input == `${repo}/${file.path}`) {
             navHtml += /* HTML */ `
                 <li>
@@ -216,7 +218,9 @@ for (const [_, category] of Object.entries(categories)) {
                   <br>
                 </li>
             `;
-        } else {
+        }
+        // Other files.
+        else {
             const path = file.path.substring(0, file.path.length - 3);
             navHtml += /* HTML */ `
                 <li>
