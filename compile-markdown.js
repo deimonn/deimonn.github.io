@@ -26,9 +26,10 @@ function readFile(path) {
 const args = process.argv.slice(2);
 
 const repo = args[0];
-const target = args[1];
+const prefix = args[1].substring(repo.length + 1);
+const target = args[2];
 
-const input = `src/submodules/${repo}/${target}.md`;
+const input = `src/submodules/${repo}/${prefix}${target}.md`;
 const mainOutput = `obj/${repo}/${target}.html`;
 const navOutput = `obj/${repo}/${target}.nav.html`;
 const tocOutput = `obj/${repo}/${target}.toc.html`;
@@ -82,7 +83,7 @@ let mainHtml = await marked.parse(readFile(input), {
             }
 
             // Other relative link; point to raw user content.
-            let dirname = path.dirname(target);
+            let dirname = path.dirname(prefix + target);
             let href =
                 `https://raw.githubusercontent.com/deimonn/` +
                 `${repo}/refs/heads/master/${dirname}/${token.href}`
@@ -181,13 +182,15 @@ if (headings.length == 0) {
 const categories = {};
 let dictionary = {};
 
-if (fs.existsSync(`src/submodules/${repo}/categories.json`)) {
-    dictionary = JSON.parse(readFile(`src/submodules/${repo}/categories.json`));
+if (fs.existsSync(`src/submodules/${repo}/${prefix}categories.json`)) {
+    dictionary = JSON.parse(
+        readFile(`src/submodules/${repo}/${prefix}categories.json`)
+    );
 }
 
 for (const path of listing) {
     // Remove common prefix.
-    const file = path.substring(16 + repo.length);
+    const file = path.substring(16 + repo.length + prefix.length);
     if (!file.includes("/")) {
         continue;
     }
@@ -227,7 +230,7 @@ for (const [_, category] of Object.entries(categories)) {
 
     for (const file of category.files) {
         // Current file, highlighted in bold.
-        if (input == `src/submodules/${repo}/${file.path}`) {
+        if (input == `src/submodules/${repo}/${prefix}${file.path}`) {
             navHtml += /* HTML */ `
                 <li>
                   <b>${file.name}</b>

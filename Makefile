@@ -82,7 +82,7 @@ $(void_guides_outputs): \
 	
 	# Compile markdown.
 	node compile-markdown.js \
-		void-guides \
+		void-guides void-guides/ \
 		$(patsubst dist/void-guides/%.html,%,$@)
 	
 	# Generate page from template.
