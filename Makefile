@@ -72,8 +72,8 @@ void_guides_outputs = \
 obj/void-guides.list: $(void_guides_sources)
 	echo '$(sort $(void_guides_sources))' > $@
 
-$(void_guides_outputs): \
-    src/templates/docs.html src/main.html $(void_guides_sources) \
+dist/void-guides/%.html: \
+    src/templates/docs.html src/main.html src/submodules/void-guides/%.md \
     compile-markdown.js obj/oro-theme.json obj/void-guides.list
 	
 	# Create directories.
