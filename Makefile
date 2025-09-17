@@ -71,7 +71,9 @@ void_guides_outputs = \
 
 dist/void-guides/db.json: compile-db.js $(void_guides_sources)
 	mkdir -p dist/void-guides
-	node compile-db.js $@ $(sort $(void_guides_sources))
+	node compile-db.js \
+		void-guides void-guides/ \
+		$(sort $(void_guides_sources))
 
 dist/void-guides/%.html: \
     src/templates/docs.html src/main.html src/submodules/void-guides/%.md \

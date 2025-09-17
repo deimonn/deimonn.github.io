@@ -21,8 +21,12 @@ function readFile(path) {
 
 // Parse inputs.
 const db = [];
-const output = process.argv[2];
-const inputs = process.argv.slice(3);
+
+const repo = process.argv[2];
+const prefix = process.argv[3];
+
+const output = `dist/${repo}/db.json`;
+const inputs = process.argv.slice(4);
 
 for (const input of inputs) {
     // Initialize entry and push it to database.
@@ -31,6 +35,11 @@ for (const input of inputs) {
     }
 
     db.push(entry);
+
+    // Generate link.
+    let href = input.substring(15 + prefix.length, input.length - 3);
+
+    entry.href = `/${repo}/${href}`;
 
     // Read file contents.
     entry.content = readFile(input);
