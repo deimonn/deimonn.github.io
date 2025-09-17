@@ -108,12 +108,22 @@ function setTheme(theme) {
 })();
 
 // Scroll to current page in navigation when present.
-(function () {
+window.addEventListener("load", () => {
+    // Fetch current page in navigation; do nothing if there's none.
     const currentPage = document.getElementById("dei-currentpage");
-    if (currentPage) {
-        currentPage.scrollIntoView();
+    if (!currentPage) {
+        return;
     }
-})();
+
+    // Save old window scroll because scrollIntoView() is going to mess with it.
+    const windowTop = window.scrollY;
+
+    // Scroll to current page in navigation.
+    currentPage.scrollIntoView({ behavior: "instant", block: "center" });
+
+    // Restore old window scroll.
+    window.scrollTo({ behavior: "instant", top: windowTop });
+});
 
 // Theme initialization.
 setTheme(localStorage.getItem("theme") ?? "system");
