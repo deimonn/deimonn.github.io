@@ -208,10 +208,7 @@ for (const entry of db) {
     }
 
     // Push file entry to category.
-    categories[category].files.push({
-        name: entry.title,
-        path: file
-    });
+    categories[category].files.push(entry);
 }
 
 // Generate navigation.
@@ -222,20 +219,19 @@ for (const [_, category] of Object.entries(categories)) {
 
     for (const file of category.files) {
         // Current file, highlighted in bold.
-        if (input == `src/submodules/${repo}/${prefix}${file.path}`) {
+        if (input === file.path) {
             navHtml += /* HTML */ `
                 <li id="dei-currentpage">
-                  <b>${file.name}</b>
+                  <b>${file.title}</b>
                   <br>
                 </li>
             `;
         }
         // Other files.
         else {
-            const path = file.path.substring(0, file.path.length - 3);
             navHtml += /* HTML */ `
                 <li>
-                  <a href="/${repo}/${path}">${file.name}</a>
+                  <a href="${file.href}">${file.title}</a>
                   <br>
                 </li>
             `;
