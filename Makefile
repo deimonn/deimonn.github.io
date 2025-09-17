@@ -69,7 +69,7 @@ void_guides_sources = \
 void_guides_outputs = \
 	$(patsubst src/submodules/void-guides/%.md,dist/void-guides/%.html,$(void_guides_sources))
 
-dist/void-guides/db.json: $(void_guides_sources)
+dist/void-guides/db.json: compile-db.js $(void_guides_sources)
 	mkdir -p dist/void-guides
 	node compile-db.js $@ $(sort $(void_guides_sources))
 
