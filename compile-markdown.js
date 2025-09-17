@@ -34,7 +34,7 @@ const mainOutput = `obj/${repo}/${target}.html`;
 const navOutput = `obj/${repo}/${target}.nav.html`;
 const tocOutput = `obj/${repo}/${target}.toc.html`;
 const nameOutput = `obj/${repo}/${target}.name.txt`;
-const listing = readFile(`obj/${repo}.list`).trim().split(' ');
+const db = JSON.parse(readFile(`dist/${repo}/db.json`));
 
 // Fetch highlighter theme.
 const oroTheme = JSON.parse(readFile("obj/oro-theme.json"));
@@ -188,7 +188,9 @@ if (fs.existsSync(`src/submodules/${repo}/${prefix}categories.json`)) {
     );
 }
 
-for (const path of listing) {
+for (const entry of db) {
+    const path = entry.path;
+
     // Remove common prefix.
     const file = path.substring(16 + repo.length + prefix.length);
     if (!file.includes("/")) {
@@ -205,19 +207,9 @@ for (const path of listing) {
         };
     }
 
-    // Fetch file title.
-    const fileContents = readFile(path).trim().split("\n");
-
-    let fileTitle;
-    if (fileContents.length != 0 && fileContents[0].startsWith("# ")) {
-        fileTitle = await marked.parseInline(fileContents[0].substring(2));
-    } else {
-        fileTitle = path;
-    }
-
     // Push file entry to category.
     categories[category].files.push({
-        name: fileTitle,
+        name: entry.title,
         path: file
     });
 }

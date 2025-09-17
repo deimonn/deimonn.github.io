@@ -69,12 +69,13 @@ void_guides_sources = \
 void_guides_outputs = \
 	$(patsubst src/submodules/void-guides/%.md,dist/void-guides/%.html,$(void_guides_sources))
 
-obj/void-guides.list: $(void_guides_sources)
-	echo '$(sort $(void_guides_sources))' > $@
+dist/void-guides/db.json: $(void_guides_sources)
+	mkdir -p dist/void-guides
+	node compile-db.js $@ $(sort $(void_guides_sources))
 
 dist/void-guides/%.html: \
     src/templates/docs.html src/main.html src/submodules/void-guides/%.md \
-    compile-markdown.js obj/oro-theme.json obj/void-guides.list
+    compile-markdown.js obj/oro-theme.json dist/void-guides/db.json
 	
 	# Create directories.
 	mkdir -p "$$(dirname $(subst dist/void-guides/,obj/void-guides/,$@))"
