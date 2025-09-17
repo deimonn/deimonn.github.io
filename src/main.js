@@ -107,5 +107,13 @@ function setTheme(theme) {
     }
 })();
 
+// Scroll to current page in navigation when present.
+(function () {
+    const currentPage = document.getElementById("dei-currentpage");
+    if (currentPage) {
+        currentPage.scrollIntoView();
+    }
+})();
+
 // Theme initialization.
 setTheme(localStorage.getItem("theme") ?? "system");

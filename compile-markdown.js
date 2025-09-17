@@ -232,7 +232,7 @@ for (const [_, category] of Object.entries(categories)) {
         // Current file, highlighted in bold.
         if (input == `src/submodules/${repo}/${prefix}${file.path}`) {
             navHtml += /* HTML */ `
-                <li>
+                <li id="dei-currentpage">
                   <b>${file.name}</b>
                   <br>
                 </li>
