@@ -33,11 +33,12 @@ for (const input of inputs) {
     db.push(entry);
 
     // Read file contents.
-    entry.content = readFile(input).trim().split("\n");
+    entry.content = readFile(input);
 
     // Determine title.
-    if (entry.content.length != 0 && entry.content[0].startsWith("# ")) {
-        entry.title = await marked.parseInline(entry.content[0].substring(2));
+    const lines = entry.content.trim().split("\n");
+    if (lines.length != 0 && lines[0].startsWith("# ")) {
+        entry.title = await marked.parseInline(lines[0].substring(2));
     } else {
         entry.title = entry.path;
     }
