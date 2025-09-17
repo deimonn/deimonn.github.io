@@ -49,7 +49,7 @@ for (const input of inputs) {
     if (lines.length != 0 && lines[0].startsWith("# ")) {
         entry.title = await marked.parseInline(lines[0].substring(2));
     } else {
-        entry.title = entry.path;
+        entry.title = entry.href;
     }
 }
 
