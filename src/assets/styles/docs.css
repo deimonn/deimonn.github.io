@@ -135,6 +135,45 @@ aside > div {
     color: var(--sl-color-primary-700);
 }
 
+.dei-navigation > li > a > p {
+    color: var(--sl-color-neutral-500);
+    font-size: 0.75em;
+    overflow: clip;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+/* Search stuff. */
+.dei-searchflex {
+    display: flex;
+    align-content: center;
+}
+
+.dei-searchflex > sl-spinner {
+    margin: auto;
+    font-size: 3em;
+    --track-width: 4px;
+}
+
+.dei-searchflex > p {
+    color: var(--sl-color-neutral-600);
+    font-style: italic;
+    margin: auto;
+    text-align: center;
+}
+
+.dei-searchhighlight {
+    background-color: var(--sl-color-primary-300);
+}
+
+.dei-searcherror {
+    color: var(--sl-color-danger-700) !important;
+}
+
+.dei-searcherror > sl-icon {
+    font-size: 3em;
+}
+
 /* Document render. */
 .dei-document {
     width: 50%;

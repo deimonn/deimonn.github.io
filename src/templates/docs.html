@@ -24,14 +24,15 @@
     </div>
 
     <!-- Search -->
-    <sl-input placeholder="Search" clearable pill disabled> <!-- TODO: implement -->
+    <sl-input id="dei-searchinput" placeholder="Search" data-repo="${DOCS_REPO}" clearable pill>
       <sl-icon name="search" slot="prefix"></sl-icon>
     </sl-input>
 
     <!-- Navigation -->
-    <ul class="dei-navigation">
+    <ul id="dei-navmain" class="dei-navigation">
       ${DOCS_NAVHTML}
     </ul>
+    <ul id="dei-navsearch" class="dei-navigation" style="display: none"></ul>
   </aside>
 
   <sl-button id="dei-openaside" class="dei-openaside" pill>
