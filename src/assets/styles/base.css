@@ -248,7 +248,6 @@ blockquote {
 .dei-anchor, .dei-anchor:visited {
     visibility: hidden;
     color: var(--sl-color-neutral-1000);
-    position: fixed;
 }
 
 .dei-anchor:hover {
