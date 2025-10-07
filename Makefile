@@ -76,7 +76,8 @@ dist/void-guides/db.json: compile-db.js $(void_guides_sources)
 		$(sort $(void_guides_sources))
 
 dist/void-guides/%.html: \
-    src/templates/docs.html src/main.html src/submodules/void-guides/%.md \
+    src/templates/docs.html src/main.html \
+    src/submodules/void-guides/%.md src/submodules/void-guides/categories.json \
     compile-markdown.js obj/oro-theme.json dist/void-guides/db.json
 	
 	# Create directories.
