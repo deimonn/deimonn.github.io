@@ -259,3 +259,23 @@ h1:hover .dei-anchor, h2:hover .dei-anchor, h3:hover .dei-anchor,
 h4:hover .dei-anchor, h5:hover .dei-anchor {
     visibility: visible;
 }
+
+/* Table style. */
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+th {
+    text-align: left;
+    border-bottom: 1px solid var(--sl-color-neutral-1000);
+}
+
+td, th {
+    padding: 2px;
+    max-width: 0;
+}
+
+tr:not(:first-child) > td {
+    border-top: 1px solid var(--sl-color-neutral-100);
+}
