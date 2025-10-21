@@ -34,7 +34,7 @@ const mainOutput = `obj/${repo}/${target}.html`;
 const navOutput = `obj/${repo}/${target}.nav.html`;
 const tocOutput = `obj/${repo}/${target}.toc.html`;
 const nameOutput = `obj/${repo}/${target}.name.txt`;
-const db = JSON.parse(readFile(`dist/${repo}/db.json`));
+const nav = JSON.parse(readFile(`obj/${repo}/nav-db.json`));
 
 // Fetch highlighter theme.
 const oroTheme = JSON.parse(readFile("obj/oro-theme.json"));
@@ -188,7 +188,7 @@ if (fs.existsSync(`src/submodules/${repo}/${prefix}categories.json`)) {
     );
 }
 
-for (const entry of db) {
+for (const entry of nav) {
     const path = entry.path;
 
     // Remove common prefix.

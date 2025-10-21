@@ -69,8 +69,9 @@ void_guides_sources = \
 void_guides_outputs = \
 	$(patsubst src/submodules/void-guides/%.md,dist/void-guides/%.html,$(void_guides_sources))
 
-dist/void-guides/db.json: compile-db.js $(void_guides_sources)
-	mkdir -p dist/void-guides
+dist/void-guides/search-db.json obj/void-guides/nav-db.json: \
+    compile-db.js $(void_guides_sources)
+	mkdir -p dist/void-guides obj/void-guides
 	node compile-db.js \
 		void-guides void-guides/ \
 		$(sort $(void_guides_sources))
@@ -78,7 +79,7 @@ dist/void-guides/db.json: compile-db.js $(void_guides_sources)
 dist/void-guides/%.html: \
     src/templates/docs.html src/main.html \
     src/submodules/void-guides/%.md src/submodules/void-guides/categories.json \
-    compile-markdown.js obj/oro-theme.json dist/void-guides/db.json
+    compile-markdown.js obj/oro-theme.json obj/void-guides/nav-db.json
 	
 	# Create directories.
 	mkdir -p "$$(dirname $(subst dist/void-guides/,obj/void-guides/,$@))"
@@ -104,7 +105,7 @@ dist/void-guides/%.html: \
 	envsubst '$$PAGE_TITLE,$$DOCS_REPO,$$DOCS_MAINHTML,$$DOCS_NAVHTML,$$DOCS_TOCHTML' \
 		< $(patsubst dist/void-guides/%.html,obj/void-guides/%.in.html,$@) > $@
 
-targets += $(void_guides_outputs)
+targets += dist/void-guides/search-db.json $(void_guides_outputs)
 
 # *───────*
 # │ Phony

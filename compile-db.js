@@ -19,22 +19,26 @@ function readFile(path) {
     return fs.readFileSync(path, { encoding: "utf-8" });
 }
 
-// Parse inputs.
-const db = [];
+// Variables and constants.
+let search = [];
+let nav = [];
 
 const repo = process.argv[2];
 const prefix = process.argv[3];
 
-const output = `dist/${repo}/db.json`;
+const searchOutput = `dist/${repo}/search-db.json`;
+const navOutput = `obj/${repo}/nav-db.json`;
+
+// Parse inputs.
 const inputs = process.argv.slice(4);
 
 for (const input of inputs) {
-    // Initialize entry and push it to database.
+    // Initialize entry and push it to search database.
     const entry = {
         path: input
     };
 
-    db.push(entry);
+    search.push(entry);
 
     // Generate link.
     const href = input.substring(15 + prefix.length, input.length - 3);
@@ -50,7 +54,27 @@ for (const input of inputs) {
     } else {
         entry.title = entry.href;
     }
+
+    // Push to navigation database without the `content` field.
+    const navEntry = structuredClone(entry);
+    delete navEntry.content;
+
+    nav.push(navEntry);
 }
 
+// Stringify.
+search = JSON.stringify(search);
+nav = JSON.stringify(nav);
+
 // Write database to disk.
-fs.writeFileSync(output, JSON.stringify(db));
+fs.writeFileSync(searchOutput, search);
+
+// Write navigation data to disk only if there were changes.
+if (fs.existsSync(navOutput)) {
+    const oldContent = readFile(navOutput);
+    if (oldContent !== nav) {
+        fs.writeFileSync(navOutput, nav);
+    }
+} else {
+    fs.writeFileSync(navOutput, nav);
+}

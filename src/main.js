@@ -157,7 +157,7 @@ function setTheme(theme) {
             `;
 
             // Download and parse database.
-            const response = await fetch(`/${repo}/db.json`);
+            const response = await fetch(`/${repo}/search-db.json`);
             if (!response.ok) {
                 // Display error on failure.
                 navSearch.innerHTML = /* HTML */ `
