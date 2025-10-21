@@ -37,8 +37,7 @@ for (const input of inputs) {
     db.push(entry);
 
     // Generate link.
-    let href = input.substring(15 + prefix.length, input.length - 3);
-
+    const href = input.substring(15 + prefix.length, input.length - 3);
     entry.href = `/${repo}/${href}`;
 
     // Read file contents.
