@@ -32,7 +32,7 @@ for (const input of inputs) {
     // Initialize entry and push it to database.
     const entry = {
         path: input
-    }
+    };
 
     db.push(entry);
 
