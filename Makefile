@@ -12,6 +12,9 @@
 
 .DEFAULT_GOAL = all
 
+# Create build directories.
+$(shell mkdir -p dist/assets obj)
+
 # List of all targets.
 targets =
 
@@ -113,21 +116,15 @@ targets += dist/void-guides/search-db.json $(void_guides_outputs)
 
 # Build.
 .PHONY: all
-all: assets dirs $(targets)
+all: assets $(targets)
 
 # Clean up artifacts.
 .PHONY: clean
 clean: ; -rm -rf dist/ obj/
 
-# Create the build directories.
-.PHONY: dirs
-dirs: ; mkdir -p dist/ obj/
-
 # Copy assets.
 .PHONY: assets
-assets:
-	mkdir -p dist/assets
-	cp -ruf src/assets/* dist/assets/
+assets: ; cp -ruf src/assets/* dist/assets/
 
 # Debugging utility.
 debug-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
