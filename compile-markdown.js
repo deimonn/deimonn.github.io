@@ -76,9 +76,23 @@ let mainHtml = await marked.parse(readFile(input), {
                 return;
             }
 
-            // Relative link to markdown; remove extension.
+            // Relative link to markdown.
             if (/(\.md$)|(\.md(?=#))/.test(token.href)) {
+                // Remove extension.
                 token.href = token.href.replace(/(\.md$)|(\.md(?=#))/, "");
+
+                // Validate existence.
+                let file = `src/submodules/${repo}/${prefix}`;
+
+                file += path.dirname(target) + "/";
+                file += token.href.replace(/#.*$/, "") + ".md";
+
+                if (!fs.existsSync(file)) {
+                    console.warn(
+                        `${input}: broken link to file '${file}'`
+                    );
+                }
+
                 return;
             }
 
