@@ -243,6 +243,7 @@ function setTheme(theme) {
                         result.contentMatches.push(contentMatch);
                     }
 
+                    // Mark term as matched.
                     termsMatched[term] = true;
 
                     index = match + term.length;
