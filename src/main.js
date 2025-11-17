@@ -262,9 +262,12 @@ function setTheme(theme) {
         // Sort by score.
         results.sort((lhs, rhs) => rhs.score - lhs.score);
 
+        // Clear HTML.
+        navSearch.innerHTML = "";
+
         // No results.
         if (results.length === 0) {
-            navSearch.innerHTML = /* HTML */ `
+            navSearch.innerHTML += /* HTML */ `
                 <div class="dei-searchflex">
                   <p>Search found no results</p>
                 </div>
@@ -273,9 +276,17 @@ function setTheme(theme) {
             return;
         }
 
-        // Otherwise generate result HTML.
-        navSearch.innerHTML = "";
+        // Too many results; truncate.
+        if (results.length > 20) {
+            results.length = 20;
+            navSearch.innerHTML += /* HTML */ `
+                <div class="dei-searchflex">
+                  <p>>20 hits; showing most relevant</p>
+                </div>
+            `;
+        }
 
+        // Generate result HTML.
         for (let result of results) {
             const entry = result.entry;
 
