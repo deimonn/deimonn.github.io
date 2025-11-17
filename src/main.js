@@ -254,7 +254,7 @@ function setTheme(theme) {
             result.score *= Object.entries(termsMatched).length;
 
             // Result has at least some score; push.
-            if (result.score) {
+            if (result.score > 0) {
                 results.push(result);
             }
         }
