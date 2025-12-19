@@ -24,5 +24,6 @@ main > div {
 h1 {
     font-size: 3em;
     font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
     font-style: italic;
 }

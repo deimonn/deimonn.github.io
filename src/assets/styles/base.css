@@ -223,11 +223,13 @@ pre {
 
 pre > code {
     font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
 }
 
 /* Code snippet style. */
 code:not(pre > code) {
     font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
     border: 1px solid;
     border-color: var(--sl-color-neutral-200);
     border-radius: 4px;

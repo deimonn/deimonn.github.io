@@ -54,11 +54,13 @@ main {
 h1 {
     font-size: 3em;
     font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
     font-style: italic;
 }
 
 h2 {
     font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
     font-style: italic;
 }
 
@@ -125,6 +127,7 @@ sl-card {
 
 sl-card > b {
     font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
 }
 
 sl-card > p {
