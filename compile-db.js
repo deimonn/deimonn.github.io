@@ -1,6 +1,6 @@
 /*── compile-db.js ── Compilation of database ──*
  │
- │ Copyright (c) 2025 Deimonn
+ │ Copyright (c) 2025-2026 Deimonn
  │
  │ This file is licensed under the MIT License.
  │
@@ -19,19 +19,23 @@ function readFile(path) {
     return fs.readFileSync(path, { encoding: "utf-8" });
 }
 
+// Fetch arguments.
+const args = process.argv.slice(2);
+
+const submodule = args[0];
+const repo = args[1];
+const prefix = args[2].substring(repo.length + 1);
+
+const inputs = args.slice(3);
+
 // Variables and constants.
 let search = [];
 let nav = [];
-
-const repo = process.argv[2];
-const prefix = process.argv[3];
 
 const searchOutput = `dist/${repo}/search-db.json`;
 const navOutput = `obj/${repo}/nav-db.json`;
 
 // Parse inputs.
-const inputs = process.argv.slice(4);
-
 for (const input of inputs) {
     // Initialize entry and push it to search database.
     const entry = {
@@ -41,7 +45,10 @@ for (const input of inputs) {
     search.push(entry);
 
     // Generate link.
-    const href = input.substring(15 + prefix.length, input.length - 3);
+    const hrefStart = submodule.length + prefix.length + 1;
+    const hrefEnd = input.length - 3;
+
+    const href = input.substring(hrefStart, hrefEnd);
     entry.href = `/${repo}/${href}`;
 
     // Read file contents.

@@ -1,6 +1,6 @@
 /*── compile-markdown.js ── Compilation of markdown docs ──*
  │
- │ Copyright (c) 2025 Deimonn
+ │ Copyright (c) 2025-2026 Deimonn
  │
  │ This file is licensed under the MIT License.
  │
@@ -25,11 +25,12 @@ function readFile(path) {
 // Fetch arguments.
 const args = process.argv.slice(2);
 
-const repo = args[0];
-const prefix = args[1].substring(repo.length + 1);
-const target = args[2];
+const submodule = args[0];
+const repo = args[1];
+const prefix = args[2].substring(repo.length + 1);
+const target = args[3];
 
-const input = `src/submodules/${repo}/${prefix}${target}.md`;
+const input = `${submodule}/${prefix}${target}.md`;
 const mainOutput = `obj/${repo}/${target}.html`;
 const navOutput = `obj/${repo}/${target}.nav.html`;
 const tocOutput = `obj/${repo}/${target}.toc.html`;
@@ -82,7 +83,7 @@ let mainHtml = await marked.parse(readFile(input), {
                 token.href = token.href.replace(/(\.md$)|(\.md(?=#))/, "");
 
                 // Validate existence.
-                let file = `src/submodules/${repo}/${prefix}`;
+                let file = `${submodule}/${prefix}`;
 
                 file += path.dirname(target) + "/";
                 file += token.href.replace(/#.*$/, "") + ".md";
@@ -196,9 +197,9 @@ if (headings.length == 0) {
 const categories = {};
 let dictionary = {};
 
-if (fs.existsSync(`src/submodules/${repo}/${prefix}categories.json`)) {
+if (fs.existsSync(`${submodule}/${prefix}categories.json`)) {
     dictionary = JSON.parse(
-        readFile(`src/submodules/${repo}/${prefix}categories.json`)
+        readFile(`${submodule}/${prefix}categories.json`)
     );
 }
 
@@ -206,7 +207,7 @@ for (const entry of nav) {
     const path = entry.path;
 
     // Remove common prefix.
-    const file = path.substring(16 + repo.length + prefix.length);
+    const file = path.substring(submodule.length + prefix.length + 1);
     if (!file.includes("/")) {
         continue;
     }

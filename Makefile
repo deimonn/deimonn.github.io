@@ -1,6 +1,6 @@
 # *── Makefile ── Makefile for deimonn.dev ──*
 # │
-# │ Copyright (c) 2025 Deimonn
+# │ Copyright (c) 2025-2026 Deimonn
 # │
 # │ This file is licensed under the MIT License.
 # │
@@ -14,6 +14,20 @@
 
 # Create build directories.
 $(shell mkdir -p dist/assets obj)
+
+# *─────────*
+# │ Options
+# *
+
+# Node command line to use to run scripts.
+NODE ?= node
+
+# Path to the `void-guides` submodule.
+VOID_GUIDES ?= src/submodules/void-guides
+
+# *─────────*
+# │ Targets
+# *
 
 # List of all targets.
 targets =
@@ -67,21 +81,21 @@ targets += dist/index.html
 
 # Documentation for 'void-guides'.
 void_guides_sources = \
-	src/submodules/void-guides/index.md \
-	$(wildcard src/submodules/void-guides/*/*.md)
+	$(VOID_GUIDES)/index.md \
+	$(wildcard $(VOID_GUIDES)/*/*.md)
 void_guides_outputs = \
-	$(patsubst src/submodules/void-guides/%.md,dist/void-guides/%.html,$(void_guides_sources))
+	$(patsubst $(VOID_GUIDES)/%.md,dist/void-guides/%.html,$(void_guides_sources))
 
 dist/void-guides/search-db.json obj/void-guides/nav-db.json: \
     compile-db.js $(void_guides_sources)
 	mkdir -p dist/void-guides obj/void-guides
-	node compile-db.js \
-		void-guides void-guides/ \
+	$(NODE) compile-db.js \
+		'$(VOID_GUIDES)' void-guides void-guides/ \
 		$(sort $(void_guides_sources))
 
 dist/void-guides/%.html: \
     src/templates/docs.html src/main.html \
-    src/submodules/void-guides/%.md src/submodules/void-guides/categories.json \
+    $(VOID_GUIDES)/%.md $(VOID_GUIDES)/categories.json \
     compile-markdown.js obj/oro-theme.json obj/void-guides/nav-db.json
 	
 	# Create directories.
@@ -89,8 +103,8 @@ dist/void-guides/%.html: \
 	mkdir -p "$$(dirname $@)"
 	
 	# Compile markdown.
-	node compile-markdown.js \
-		void-guides void-guides/ \
+	$(NODE) compile-markdown.js \
+		'$(VOID_GUIDES)' void-guides void-guides/ \
 		$(patsubst dist/void-guides/%.html,%,$@)
 	
 	# Generate page from template.
