@@ -17,10 +17,31 @@ import * as marked from "marked";
 import * as markedGfmHeadingId from "marked-gfm-heading-id";
 import * as shiki from "shiki";
 
+import sanitizeHtml from "sanitize-html";
+
 // Utility for reading files to strings.
 function readFile(path) {
     return fs.readFileSync(path, { encoding: "utf-8" });
 }
+
+// Utility for escaping HTML tags.
+function escapeHtml(text) {
+    return text
+        .replaceAll("&",  "&amp;")
+        .replaceAll("<",  "&lt;")
+        .replaceAll(">",  "&gt;")
+        .replaceAll("\"", "&quot;")
+        .replaceAll("'",  "&#39;");
+}
+
+// Utility for removing HTML tags.
+function removeHtml(text) {
+    return sanitizeHtml(text, {
+        allowedTags: [],
+        allowedAttributes: {},
+        disallowedTagsMode: "discard"
+    });
+};
 
 // Fetch arguments.
 const args = process.argv.slice(2);
@@ -67,11 +88,14 @@ let mainHtml = await marked.parse(readFile(input), {
                 return;
             }
 
+            // Escape token text.
+            const tokenText = escapeHtml(token.text);
+
             // Absolute link; make it open in a new tab.
             if (/^[a-z]+:\/\//i.test(token.href)) {
                 token.type = "html";
                 token.text = /* HTML */ `
-                    <a href="${token.href}" target="_blank">${token.text}</a>
+                    <a href="${token.href}" target="_blank">${tokenText}</a>
                 `.trim();
 
                 return;
@@ -105,7 +129,7 @@ let mainHtml = await marked.parse(readFile(input), {
 
             token.type = "html";
             token.text = /* HTML */ `
-                <a href="${href}" target="_blank">${token.text}</a>
+                <a href="${href}" target="_blank">${tokenText}</a>
             `.trim();
 
             return;
@@ -177,7 +201,7 @@ let tocHtml = "";
 for (const heading of headings) {
     tocHtml += /* HTML */ `
         <a href="#${heading.id}" style="margin-left: ${heading.level - 1}em">
-            - ${heading.text}
+            - ${removeHtml(heading.text)}
         </a>
         <br>
     `;
@@ -230,14 +254,14 @@ for (const entry of nav) {
 let navHtml = "";
 
 for (const [_, category] of Object.entries(categories)) {
-    navHtml += /* HTML */ `<h2>${category.name}</h2>`;
+    navHtml += /* HTML */ `<h2>${escapeHtml(category.name)}</h2>`;
 
     for (const file of category.files) {
         // Current file, highlighted in bold.
         if (input === file.path) {
             navHtml += /* HTML */ `
                 <li id="dei-currentpage">
-                  <b>${file.title}</b>
+                  <b>${removeHtml(file.title)}</b>
                   <br>
                 </li>
             `;
@@ -246,7 +270,7 @@ for (const [_, category] of Object.entries(categories)) {
         else {
             navHtml += /* HTML */ `
                 <li>
-                  <a href="${file.href}">${file.title}</a>
+                  <a href="${file.href}">${removeHtml(file.title)}</a>
                   <br>
                 </li>
             `;

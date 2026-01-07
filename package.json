@@ -6,6 +6,7 @@
         "@types/node": "^24.3.0",
         "marked": "^16.2.0",
         "marked-gfm-heading-id": "^4.1.2",
+        "sanitize-html": "^2.17.0",
         "shiki": "^3.11.0"
     }
 }
