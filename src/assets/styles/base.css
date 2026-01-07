@@ -1,6 +1,6 @@
 /*── src/assets/styles/base.css ── Base styles for the site ──*
  │
- │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2026 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
@@ -236,6 +236,15 @@ code:not(pre > code) {
     padding-left: 2px;
     padding-right: 2px;
     background-color: var(--sl-color-neutral-50);
+}
+
+/* Code reference snippet style. */
+a > code {
+    color: var(--sl-color-primary-900);
+}
+
+a > code:hover {
+    color: var(--sl-color-primary-700);
 }
 
 /* Block quote style. */
