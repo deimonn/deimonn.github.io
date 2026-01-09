@@ -124,6 +124,7 @@ function setTheme(theme) {
     let db = null;
     let dbFetch = false;
     let search = null;
+    let mainResult = null;
 
     // On input change.
     searchInput.addEventListener("sl-input", async () => {
@@ -286,6 +287,12 @@ function setTheme(theme) {
             `;
         }
 
+        navSearch.innerHTML += /* HTML */ `
+            <div class="dei-searchflex">
+                <p>⏎ Enter goes to first result</p>
+            </div>
+        `;
+
         // Generate result HTML.
         for (let result of results) {
             const entry = result.entry;
@@ -348,6 +355,16 @@ function setTheme(theme) {
                   </a>
                 </li>
             `;
+        }
+
+        // Set main result.
+        mainResult = results[0].entry;
+    });
+
+    // On enter, go to the first result.
+    searchInput.addEventListener("keypress", (pressed) => {
+        if (pressed.key === "Enter") {
+            window.location.href = mainResult.href;
         }
     });
 })();
