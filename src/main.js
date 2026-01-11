@@ -362,8 +362,8 @@ function setTheme(theme) {
     });
 
     // On enter, go to the first result.
-    searchInput.addEventListener("keypress", (pressed) => {
-        if (pressed.key === "Enter") {
+    searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
             window.location.href = mainResult.href;
         }
     });
