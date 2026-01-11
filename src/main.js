@@ -378,6 +378,14 @@ function setTheme(theme) {
         }
     });
 
+    // On escape, clear search.
+    searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            searchInput.value = "";
+            searchInput.dispatchEvent(new Event("sl-input", {}));
+        }
+    });
+
     // Track search input focus state.
     searchInput.addEventListener("focusin", () => searchFocused = true);
     searchInput.addEventListener("focusout", () => searchFocused = false);
