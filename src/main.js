@@ -126,6 +126,8 @@ function setTheme(theme) {
     let search = null;
     let mainResult = null;
 
+    let searchFocused = false;
+
     // On input change.
     searchInput.addEventListener("sl-input", async () => {
         search = searchInput.value.trim();
@@ -361,12 +363,24 @@ function setTheme(theme) {
         mainResult = results[0].entry;
     });
 
+    // On '/', focus search.
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "/" && !searchFocused) {
+            event.preventDefault();
+            searchInput.focus();
+        }
+    });
+
     // On enter, go to the first result.
     searchInput.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             window.location.href = mainResult.href;
         }
     });
+
+    // Track search input focus state.
+    searchInput.addEventListener("focusin", () => searchFocused = true);
+    searchInput.addEventListener("focusout", () => searchFocused = false);
 })();
 
 // Scroll to current page in navigation when present.
