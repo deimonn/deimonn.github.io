@@ -156,7 +156,7 @@ let mainHtml = await marked.parse(readFile(input), {
             // Add copy button to code block.
             token.text = /* HTML */ `
                 <div class="copy-code">
-                    <sl-copy-button from="dei-codeblock${counter}.innerText">
+                    <sl-copy-button from="codeblock-no${counter}.innerText">
                         <sl-icon
                             slot="copy-icon"
                             name="clipboard-fill"
@@ -175,7 +175,7 @@ let mainHtml = await marked.parse(readFile(input), {
             `;
 
             token.text = token.text.replace(/<code>/, /* HTML */ `
-                <code id="dei-codeblock${counter}">
+                <code id="codeblock-no${counter}">
             `.trim());
 
             counter++;
@@ -260,7 +260,7 @@ for (const [_, category] of Object.entries(categories)) {
         // Current file, highlighted in bold.
         if (input === file.path) {
             navHtml += /* HTML */ `
-                <li id="dei-currentpage">
+                <li id="current-page">
                   <b>${removeHtml(file.title)}</b>
                   <br>
                 </li>

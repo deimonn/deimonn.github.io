@@ -13,7 +13,7 @@
 // Sets and applies a theme site-wide.
 function setTheme(theme) {
     const html = document.documentElement;
-    const themeIcon = document.getElementById("dei-themeicon");
+    const themeIcon = document.getElementById("theme-icon");
 
     // Save theme setting.
     localStorage.setItem("theme", theme);
@@ -38,7 +38,7 @@ function setTheme(theme) {
 
 // Open sidebar button.
 (function() {
-    const sidebarButton = document.getElementById("dei-openaside");
+    const sidebarButton = document.getElementById("open-aside");
     if (!sidebarButton) {
         return;
     }
@@ -64,7 +64,7 @@ function setTheme(theme) {
 
 // Back-to-top button.
 (function() {
-    const backToTop = document.getElementById("dei-backtotop");
+    const backToTop = document.getElementById("back-to-top");
 
     // On scroll, display/hide the button.
     document.addEventListener("scroll", () => {
@@ -84,7 +84,7 @@ function setTheme(theme) {
 
 // Theme selection menu.
 (function() {
-    const themeMenu = document.getElementById("dei-thememenu");
+    const themeMenu = document.getElementById("theme-menu");
 
     // On theme selected, update theme.
     themeMenu.addEventListener("sl-select", (event) => {
@@ -110,9 +110,9 @@ function setTheme(theme) {
 // Search functionality.
 (function() {
     // Fetch elements.
-    const searchInput = document.getElementById("dei-searchinput");
-    const navMain = document.getElementById("dei-navmain");
-    const navSearch = document.getElementById("dei-navsearch");
+    const searchInput = document.getElementById("search-input");
+    const navMain = document.getElementById("nav-main");
+    const navSearch = document.getElementById("nav-search");
 
     if (!searchInput | !navMain || !navSearch) {
         return;
@@ -394,7 +394,7 @@ function setTheme(theme) {
 // Scroll to current page in navigation when present.
 window.addEventListener("load", () => {
     // Fetch current page in navigation; do nothing if there's none.
-    const currentPage = document.getElementById("dei-currentpage");
+    const currentPage = document.getElementById("current-page");
     if (!currentPage) {
         return;
     }
