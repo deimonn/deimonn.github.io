@@ -155,7 +155,7 @@ let mainHtml = await marked.parse(readFile(input), {
 
             // Add copy button to code block.
             token.text = /* HTML */ `
-                <div class="dei-copycode">
+                <div class="copy-code">
                     <sl-copy-button from="dei-codeblock${counter}.innerText">
                         <sl-icon
                             slot="copy-icon"

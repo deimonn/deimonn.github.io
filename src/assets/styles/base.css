@@ -171,7 +171,7 @@ main {
 }
 
 /* Fix the toolbar position. */
-.dei-toolbar {
+.toolbar {
     z-index: 1000;
     position: fixed;
     top: 8px;
@@ -184,12 +184,12 @@ footer {
     width: 100%;
 }
 
-.dei-footertop {
+.footer-top {
     margin-top: 0;
     padding-top: 1em;
 }
 
-.dei-footerbottom {
+.footer-bottom {
     margin-bottom: 0;
     padding-bottom: 1em;
 }
@@ -256,18 +256,18 @@ blockquote {
 }
 
 /* Heading anchor. */
-.dei-anchor, .dei-anchor:visited {
+.anchor, .anchor:visited {
     visibility: hidden;
     color: var(--sl-color-neutral-1000);
 }
 
-.dei-anchor:hover {
+.anchor:hover {
     visibility: hidden;
     color: var(--sl-color-primary-700);
 }
 
-h1:hover .dei-anchor, h2:hover .dei-anchor, h3:hover .dei-anchor,
-h4:hover .dei-anchor, h5:hover .dei-anchor {
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
+h4:hover .anchor, h5:hover .anchor {
     visibility: visible;
 }
 

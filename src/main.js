@@ -100,7 +100,7 @@ function setTheme(theme) {
         }
 
         heading.innerHTML += /* HTML */ `
-            <a href="#${heading.id}" class="dei-anchor">
+            <a href="#${heading.id}" class="anchor">
               <sl-icon name="link-45deg"></sl-icon>
             </a>
         `;
@@ -154,7 +154,7 @@ function setTheme(theme) {
 
             // Display spinner.
             navSearch.innerHTML = /* HTML */ `
-                <div class="dei-searchflex">
+                <div class="search-flex">
                   <sl-spinner></sl-spinner>
                 </div>
             `;
@@ -164,8 +164,8 @@ function setTheme(theme) {
             if (!response.ok) {
                 // Display error on failure.
                 navSearch.innerHTML = /* HTML */ `
-                    <div class="dei-searchflex">
-                      <p class="dei-searcherror">
+                    <div class="search-flex">
+                      <p class="search-error">
                         <sl-icon name="exclamation-octagon"></sl-icon><br>
                         Failed to download database:<br>
                         ${response.status} ${response.statusText}
@@ -271,7 +271,7 @@ function setTheme(theme) {
         // No results.
         if (results.length === 0) {
             navSearch.innerHTML += /* HTML */ `
-                <div class="dei-searchflex">
+                <div class="search-flex">
                   <p>Search found no results</p>
                 </div>
             `;
@@ -283,14 +283,14 @@ function setTheme(theme) {
         if (results.length > 20) {
             results.length = 20;
             navSearch.innerHTML += /* HTML */ `
-                <div class="dei-searchflex">
+                <div class="search-flex">
                   <p>>20 hits; showing most relevant</p>
                 </div>
             `;
         }
 
         navSearch.innerHTML += /* HTML */ `
-            <div class="dei-searchflex">
+            <div class="search-flex">
                 <p>⏎ Enter goes to first result</p>
             </div>
         `;
@@ -341,10 +341,10 @@ function setTheme(theme) {
 
             // Perform replacements.
             title = title
-                .replaceAll("\x1B\x0B", `<span class="dei-searchhighlight">`)
+                .replaceAll("\x1B\x0B", `<span class="search-highlight">`)
                 .replaceAll("\x1B\x0C", `</span>`);
             preview = preview
-                .replaceAll("\x1B\x0B", `<span class="dei-searchhighlight">`)
+                .replaceAll("\x1B\x0B", `<span class="search-highlight">`)
                 .replaceAll("\x1B\x0C", `</span>`)
                 .replaceAll("\n", "<br>");
 

@@ -14,11 +14,11 @@
   <aside>
     <!-- Repository -->
     <div>
-      <a class="dei-projectname" href="/${DOCS_REPO}">${DOCS_REPO}</a>
-      <a class="dei-projectrepo" href="https://github.com/deimonn/${DOCS_REPO}" target="_blank">
+      <a class="project-name" href="/${DOCS_REPO}">${DOCS_REPO}</a>
+      <a class="project-repo" href="https://github.com/deimonn/${DOCS_REPO}" target="_blank">
         <sl-icon name="github"></sl-icon>
       </a>
-      <a class="dei-homebutton" href="/">
+      <a class="home-button" href="/">
         <sl-icon name="house-fill"></sl-icon>
       </a>
     </div>
@@ -29,23 +29,23 @@
     </sl-input>
 
     <!-- Navigation -->
-    <ul id="dei-navmain" class="dei-navigation">
+    <ul id="dei-navmain" class="navigation">
       ${DOCS_NAVHTML}
     </ul>
-    <ul id="dei-navsearch" class="dei-navigation" style="display: none"></ul>
+    <ul id="dei-navsearch" class="navigation" style="display: none"></ul>
   </aside>
 
-  <sl-button id="dei-openaside" class="dei-openaside" pill>
+  <sl-button id="dei-openaside" class="open-aside" pill>
       <sl-icon name="list"></sl-icon>
   </sl-button>
 
   <!-- Document viewer -->
-  <div class="dei-document">
+  <div class="document">
       ${DOCS_MAINHTML}
   </div>
 
   <!-- Table of contents -->
-  <div class="dei-toc">
+  <div class="toc">
       <h2>Table of Contents</h2>
       <div class="dei-toccontent">
         ${DOCS_TOCHTML}

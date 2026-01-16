@@ -1,6 +1,6 @@
 /*── src/assets/styles/docs.css ── Docs viewer styles ──*
  │
- │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2026 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
@@ -50,7 +50,7 @@ aside > div {
 }
 
 /* Button that opens the sidebar. */
-.dei-openaside {
+.open-aside {
     display: none;
     z-index: 1000;
     position: fixed;
@@ -64,7 +64,7 @@ aside > div {
 }
 
 /* Project title. */
-.dei-projectname, .dei-projectname:visited, .dei-projectname:hover {
+.project-name, .project-name:visited, .project-name:hover {
     font-family: Victor Mono, monospace;
     font-variant-ligatures: none;
     font-weight: bold;
@@ -75,7 +75,7 @@ aside > div {
 }
 
 /* GitHub button. */
-.dei-projectrepo, .dei-projectrepo:visited {
+.project-repo, .project-repo:visited {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
@@ -84,12 +84,12 @@ aside > div {
     color: var(--sl-color-neutral-1000);
 }
 
-.dei-projectrepo:hover {
+.project-repo:hover {
     color: var(--sl-color-primary-700);
 }
 
 /* Home button. */
-.dei-homebutton, .dei-homebutton:visited {
+.home-button, .home-button:visited {
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 8px;
@@ -97,12 +97,12 @@ aside > div {
     color: var(--sl-color-neutral-1000);
 }
 
-.dei-homebutton:hover {
+.home-button:hover {
     color: var(--sl-color-primary-700);
 }
 
 /* Navigation tree. */
-.dei-navigation {
+.navigation {
     margin-top: 1em;
     margin-bottom: 1em;
     padding-left: 1em;
@@ -115,28 +115,28 @@ aside > div {
     }
 }
 
-.dei-navigation > h2 {
+.navigation > h2 {
     font-size: 1em;
     font-weight: normal;
     border-bottom: var(--sl-color-neutral-400) solid 1px;
 }
 
-.dei-navigation > li {
+.navigation > li {
     list-style-type: none;
     padding: 4px;
     padding-left: 8px;
 }
 
-.dei-navigation > li > a {
+.navigation > li > a {
     color: var(--sl-color-neutral-1000);
     text-decoration: none;
 }
 
-.dei-navigation > li > a:hover {
+.navigation > li > a:hover {
     color: var(--sl-color-primary-700);
 }
 
-.dei-navigation > li > a > p {
+.navigation > li > a > p {
     color: var(--sl-color-neutral-500);
     font-size: 0.75em;
     overflow: clip;
@@ -145,38 +145,38 @@ aside > div {
 }
 
 /* Search stuff. */
-.dei-searchflex {
+.search-flex {
     display: flex;
     align-content: center;
 }
 
-.dei-searchflex > sl-spinner {
+.search-flex > sl-spinner {
     margin: auto;
     font-size: 3em;
     --track-width: 4px;
 }
 
-.dei-searchflex > p {
+.search-flex > p {
     color: var(--sl-color-neutral-600);
     font-style: italic;
     margin: auto;
     text-align: center;
 }
 
-.dei-searchhighlight {
+.search-highlight {
     background-color: var(--sl-color-primary-300);
 }
 
-.dei-searcherror {
+.search-error {
     color: var(--sl-color-danger-700) !important;
 }
 
-.dei-searcherror > sl-icon {
+.search-error > sl-icon {
     font-size: 3em;
 }
 
 /* Document render. */
-.dei-document {
+.document {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -194,7 +194,7 @@ aside > div {
 }
 
 /* Table of contents. */
-.dei-toc {
+.toc {
     width: 18em;
     height: 100%;
     margin-top: auto;
@@ -210,13 +210,13 @@ aside > div {
     }
 }
 
-.dei-toc > h2 {
+.toc > h2 {
     margin-top: 8px;
     font-weight: bold;
     font-size: 1.15em;
 }
 
-.dei-toccontent {
+.toc-content {
     height: calc(100vh - 5em);
     overflow-y: scroll;
 }
@@ -229,6 +229,6 @@ sl-copy-button {
     height: 0;
 }
 
-.dei-copycode:hover sl-copy-button {
+.copy-code:hover sl-copy-button {
     visibility: visible;
 }
