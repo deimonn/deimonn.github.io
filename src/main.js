@@ -1,6 +1,6 @@
 /*── src/main.js ── Main template code ──*
  │
- │ Copyright (c) 2024-2025 Deimonn
+ │ Copyright (c) 2024-2026 Deimonn
  │
  │ This file is licensed under the MIT License.
  │
