@@ -35,13 +35,13 @@ footer {
 }
 
 /* Dark theme colors. */
-.sl-theme-dark > body {
+.sl-theme-dark body {
     background-image: linear-gradient(
         220deg, #A0A000, #00A0A0, #A000A0, #A0A000, #00A0A0, #A000A0
     );
 }
 
-.sl-theme-dark > body > footer {
+.sl-theme-dark body > footer {
     background-color: #00000080;
 }
 
@@ -74,7 +74,7 @@ h1, h2 {
         -1px -1px 2px black;
 }
 
-.dei-desctext {
+main > div {
     margin-left: 25%;
     margin-right: 25%;
 
@@ -104,11 +104,11 @@ h1, h2 {
     }
 }
 
-.dei-desctext > p {
+main > div > p {
     margin: 8px;
 }
 
-.dei-desctext > sl-icon {
+main > div > sl-icon {
     position: relative;
     top: 0.15em;
     filter:
@@ -118,18 +118,8 @@ h1, h2 {
         drop-shadow(-0.3px -0.3px 0.3px black);
 }
 
-.dei-desclink, .dei-desclink:visited, .dei-desclink:hover {
-    color: var(--sl-color-primary-300);
-}
-
-.sl-theme-dark {
-    .dei-desctext {
-        background-color: #00000080;
-    }
-
-    .dei-desclink, .dei-desclink:visited, .dei-desclink:hover {
-        color: var(--sl-color-primary-700);
-    }
+.sl-theme-dark main > div {
+    background-color: #00000080;
 }
 
 /* Cards. */
@@ -164,4 +154,24 @@ sl-card > b > span {
 
 sl-card > p {
     height: 64px;
+}
+
+/* Fancy text */
+main > div, footer {
+    color: white;
+    text-shadow:
+        1px 1px 1px black,
+        -1px 1px 1px black,
+        1px -1px 1px black,
+        -1px -1px 1px black;
+
+    a, a:visited, a:hover {
+        color: var(--sl-color-primary-300);
+    }
+}
+
+.sl-theme-dark main > div, .sl-theme-dark footer {
+    a, a:visited, a:hover {
+        color: var(--sl-color-primary-700);
+    }
 }
