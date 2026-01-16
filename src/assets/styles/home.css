@@ -31,7 +31,7 @@ body {
 
 footer {
     margin-top: 5em;
-    background-color: #FFFFFF80;
+    background-color: #00000040;
 }
 
 /* Dark theme colors. */
@@ -78,6 +78,12 @@ h1, h2 {
     margin-left: 25%;
     margin-right: 25%;
 
+    /* Background. */
+    background-color: #00000040;
+    border-radius: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
     /* Fancy text. */
     color: white;
     text-shadow:
@@ -98,6 +104,10 @@ h1, h2 {
     }
 }
 
+.dei-desctext > p {
+    margin: 8px;
+}
+
 .dei-desctext > sl-icon {
     position: relative;
     top: 0.15em;
@@ -113,6 +123,10 @@ h1, h2 {
 }
 
 .sl-theme-dark {
+    .dei-desctext {
+        background-color: #00000080;
+    }
+
     .dei-desclink, .dei-desclink:visited, .dei-desclink:hover {
         color: var(--sl-color-primary-700);
     }
@@ -122,6 +136,7 @@ h1, h2 {
 sl-card {
     width: 256px;
     margin: 8px;
+    margin-top: 16px;
     box-shadow: 0px 0px 8px black;
 }
 
