@@ -221,6 +221,20 @@ aside > div {
     overflow-y: scroll;
 }
 
+/* Code block style. */
+pre {
+    padding: 8px;
+    border: 1px solid;
+    border-color: var(--sl-color-neutral-200);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+pre > code {
+    font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
+}
+
 /* Copy button. */
 sl-copy-button {
     visibility: hidden;
@@ -231,4 +245,69 @@ sl-copy-button {
 
 .copy-code:hover sl-copy-button {
     visibility: visible;
+}
+
+/* Code snippet style. */
+code:not(pre > code) {
+    font-family: Victor Mono, monospace;
+    font-variant-ligatures: none;
+    border: 1px solid;
+    border-color: var(--sl-color-neutral-200);
+    border-radius: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: var(--sl-color-neutral-50);
+}
+
+/* Code reference snippet style. */
+a > code {
+    color: var(--sl-color-primary-900);
+}
+
+a > code:hover {
+    color: var(--sl-color-primary-700);
+}
+
+/* Block quote style. */
+blockquote {
+    color: var(--sl-color-neutral-500);
+    border-left: solid 4px var(--sl-color-neutral-100);
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* Heading anchor. */
+.anchor, .anchor:visited {
+    visibility: hidden;
+    color: var(--sl-color-neutral-1000);
+}
+
+.anchor:hover {
+    visibility: hidden;
+    color: var(--sl-color-primary-700);
+}
+
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
+h4:hover .anchor, h5:hover .anchor {
+    visibility: visible;
+}
+
+/* Table style. */
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+th {
+    text-align: left;
+    border-bottom: 1px solid var(--sl-color-neutral-1000);
+}
+
+td, th {
+    padding: 2px;
+    max-width: 0;
+}
+
+tr:not(:first-child) > td {
+    border-top: 1px solid var(--sl-color-neutral-100);
 }
