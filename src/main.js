@@ -95,7 +95,7 @@ function setTheme(theme) {
 // Create anchors for headings.
 (function() {
     for (const heading of document.querySelectorAll("h1, h2, h3, h4, h5")) {
-        if (!heading.id || heading.id.startsWith("dei-")) {
+        if (!heading.id) {
             continue;
         }
 
