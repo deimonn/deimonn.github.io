@@ -110,7 +110,7 @@ dist/void-guides/%.html: \
 	# Generate page from template.
 	TEMPLATE_NAME="docs" \
 	TEMPLATE_HTML="$$(cat $<)" \
-	PAGE_ICON="/assets/icons/docs.png" \
+	PAGE_ICON="/assets/icons/void.png" \
 	envsubst '$$TEMPLATE_NAME,$$TEMPLATE_HTML,$$PAGE_ICON' \
 		< src/main.html > $(patsubst dist/void-guides/%.html,obj/void-guides/%.in.html,$@)
 	

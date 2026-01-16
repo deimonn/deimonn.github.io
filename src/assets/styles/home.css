@@ -1,6 +1,6 @@
 /*── src/assets/styles/home.css ── Home page styles ──*
  │
- │ Copyright (c) 2024-2025 Deimonn (a.k.a. Nahuel S. Cisterna)
+ │ Copyright (c) 2024-2026 Deimonn (a.k.a. Nahuel S. Cisterna)
  │
  │ This file is licensed under the MIT License.
  │
@@ -126,8 +126,25 @@ sl-card {
 }
 
 sl-card > b {
+    display: flex;
     font-family: Victor Mono, monospace;
     font-variant-ligatures: none;
+}
+
+sl-card > b > img {
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    width: 16px;
+    height: 16px;
+    image-rendering: crisp-edges;
+}
+
+sl-card > b > span {
+    margin-left: 0.25em;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 sl-card > p {
