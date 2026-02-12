@@ -14,6 +14,11 @@
 .DS_store
 Thumbs.db
 
+# Files and directories created by IDEs.
+.idea
+.vscode
+.vs
+
 # Build artifacts.
 node_modules
 /dist
