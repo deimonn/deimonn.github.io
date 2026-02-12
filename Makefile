@@ -35,8 +35,15 @@ targets =
 # Licenses.
 dist/license.txt: LICENSE
 	cp -f $< $@
+dist/code-re2c/license.txt:
+	mkdir -p dist/code-re2c && curl -Lo $@ https://raw.githubusercontent.com/deimonn/code-re2c/master/LICENSE
+dist/oro-theme/license.txt:
+	mkdir -p dist/oro-theme && curl -Lo $@ https://raw.githubusercontent.com/deimonn/oro-theme/master/LICENSE
 
-targets += dist/license.txt
+targets += \
+	dist/license.txt \
+	dist/code-re2c/license.txt \
+	dist/oro-theme/license.txt
 
 # Scripts.
 dist/main.js: src/main.js
